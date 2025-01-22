@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace FlexBazaar.Order.Application.Features.CQRS.Handlers.AddressHandlers
 {
+    // değişiklik yapmak için oluşturulan class
     public class UpdateAddressCommandHandler
     {
         private readonly IRepository<Address> _repository;
