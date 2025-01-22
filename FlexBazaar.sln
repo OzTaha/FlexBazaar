@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F7F775B1-E31D-4760-B744-34819E57251A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{B227C312-F096-4A91-A626-A4BB3EE48DE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Catalog", "Services\Catalog\FlexBazaar.Catalog\FlexBazaar.Catalog.csproj", "{0620EC79-E38C-4831-ADE5-324373373536}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{B5914EBF-88A4-4717-9BD1-45E079CCE71F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Discount", "Services\Discount\FlexBazaar.Discount\FlexBazaar.Discount.csproj", "{E8A95C75-EB32-49A2-AC2C-FF7C0A46D63D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order", "Order", "{97DA86AD-A156-49E9-9346-D50BF7A3F031}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8AC94C52-FD23-42C0-BE7D-457944C1857A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B82C7318-87F1-4D1E-B916-323CC5F1E818}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{4495EEBF-B20D-47CF-AE3E-3A95393E9F3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Order.Domain", "Services\Order\Core\FlexBazaar.Order.Domain\FlexBazaar.Order.Domain.csproj", "{53FB2E11-CBE5-4548-BA48-040292CE4FFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Order.Application", "Services\Order\Core\FlexBazaar.Order.Application\FlexBazaar.Order.Application.csproj", "{0239EDA6-78A9-4F2F-A660-1208DE30EE96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Order.Persistence", "Services\Order\Infrastructure\FlexBazaar.Order.Persistence\FlexBazaar.Order.Persistence.csproj", "{73878FA6-C1B4-47EF-AACC-DAE042D88555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Order.WebApi", "Services\Order\Presentation\FlexBazaar.Order.WebApi\FlexBazaar.Order.WebApi.csproj", "{DA66091A-321F-4370-8F41-84A229F209E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0620EC79-E38C-4831-ADE5-324373373536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0620EC79-E38C-4831-ADE5-324373373536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0620EC79-E38C-4831-ADE5-324373373536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0620EC79-E38C-4831-ADE5-324373373536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A95C75-EB32-49A2-AC2C-FF7C0A46D63D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A95C75-EB32-49A2-AC2C-FF7C0A46D63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A95C75-EB32-49A2-AC2C-FF7C0A46D63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A95C75-EB32-49A2-AC2C-FF7C0A46D63D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53FB2E11-CBE5-4548-BA48-040292CE4FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53FB2E11-CBE5-4548-BA48-040292CE4FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53FB2E11-CBE5-4548-BA48-040292CE4FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53FB2E11-CBE5-4548-BA48-040292CE4FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0239EDA6-78A9-4F2F-A660-1208DE30EE96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0239EDA6-78A9-4F2F-A660-1208DE30EE96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0239EDA6-78A9-4F2F-A660-1208DE30EE96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0239EDA6-78A9-4F2F-A660-1208DE30EE96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73878FA6-C1B4-47EF-AACC-DAE042D88555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73878FA6-C1B4-47EF-AACC-DAE042D88555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73878FA6-C1B4-47EF-AACC-DAE042D88555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73878FA6-C1B4-47EF-AACC-DAE042D88555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA66091A-321F-4370-8F41-84A229F209E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA66091A-321F-4370-8F41-84A229F209E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA66091A-321F-4370-8F41-84A229F209E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA66091A-321F-4370-8F41-84A229F209E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B227C312-F096-4A91-A626-A4BB3EE48DE2} = {F7F775B1-E31D-4760-B744-34819E57251A}
+		{0620EC79-E38C-4831-ADE5-324373373536} = {B227C312-F096-4A91-A626-A4BB3EE48DE2}
+		{B5914EBF-88A4-4717-9BD1-45E079CCE71F} = {F7F775B1-E31D-4760-B744-34819E57251A}
+		{E8A95C75-EB32-49A2-AC2C-FF7C0A46D63D} = {B5914EBF-88A4-4717-9BD1-45E079CCE71F}
+		{97DA86AD-A156-49E9-9346-D50BF7A3F031} = {F7F775B1-E31D-4760-B744-34819E57251A}
+		{8AC94C52-FD23-42C0-BE7D-457944C1857A} = {97DA86AD-A156-49E9-9346-D50BF7A3F031}
+		{B82C7318-87F1-4D1E-B916-323CC5F1E818} = {97DA86AD-A156-49E9-9346-D50BF7A3F031}
+		{4495EEBF-B20D-47CF-AE3E-3A95393E9F3E} = {97DA86AD-A156-49E9-9346-D50BF7A3F031}
+		{53FB2E11-CBE5-4548-BA48-040292CE4FFF} = {8AC94C52-FD23-42C0-BE7D-457944C1857A}
+		{0239EDA6-78A9-4F2F-A660-1208DE30EE96} = {8AC94C52-FD23-42C0-BE7D-457944C1857A}
+		{73878FA6-C1B4-47EF-AACC-DAE042D88555} = {B82C7318-87F1-4D1E-B916-323CC5F1E818}
+		{DA66091A-321F-4370-8F41-84A229F209E3} = {4495EEBF-B20D-47CF-AE3E-3A95393E9F3E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA159D74-788F-47B9-92B9-E3AAF814AE91}
+	EndGlobalSection
+EndGlobal
