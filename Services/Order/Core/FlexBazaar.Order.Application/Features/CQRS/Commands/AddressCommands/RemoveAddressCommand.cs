@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace FlexBazaar.Order.Application.Features.CQRS.Commands.AddressCommands
 {
-    // yorum
     public class RemoveAddressCommand
     {
         public int Id { get; set; }
