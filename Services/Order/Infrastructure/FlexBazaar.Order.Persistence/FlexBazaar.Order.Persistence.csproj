@@ -16,10 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\Core\FlexBazaar.Order.Application\FlexBazaar.Order.Application.csproj" />
     <ProjectReference Include="..\..\Core\FlexBazaar.Order.Domain\FlexBazaar.Order.Domain.csproj" />
   </ItemGroup>
 

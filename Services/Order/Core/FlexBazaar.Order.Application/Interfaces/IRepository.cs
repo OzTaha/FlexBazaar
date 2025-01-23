@@ -11,9 +11,9 @@ namespace FlexBazaar.Order.Application.Interfaces
     {
         Task <List<T>> GetAllAsync();
         Task<T> GetByIdAysnc(int id);
-        Task<T> CreateAsync(T entity);
-        Task<T> UpdateAsync(T entity);
-        Task<T> DeleteAsync(T Entity);
+        Task CreateAsync(T entity);
+        Task UpdateAsync(T entity);
+        Task DeleteAsync(T Entity);
         Task<T> GetByFilterAsync(Expression<Func<T, bool>> filter);
     }
 }
