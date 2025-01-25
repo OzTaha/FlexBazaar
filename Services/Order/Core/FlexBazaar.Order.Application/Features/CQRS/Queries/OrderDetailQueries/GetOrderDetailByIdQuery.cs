@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlexBazaar.Order.Application.Features.CQRS.Queries.AddressQueries.OrderDetailQueries
+namespace FlexBazaar.Order.Application.Features.CQRS.Queries.OrderDetailQueries
 {
-    public class GetOrderDetailQuery
+    public class GetOrderDetailByIdQuery
     {
         public int Id { get; set; }
 
-        public GetOrderDetailQuery(int id)
+        public GetOrderDetailByIdQuery(int id)
         {
             Id = id;
         }

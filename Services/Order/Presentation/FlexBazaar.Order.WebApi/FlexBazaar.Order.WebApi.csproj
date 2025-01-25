@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\Core\FlexBazaar.Order.Application\FlexBazaar.Order.Application.csproj" />
+    <ProjectReference Include="..\..\Core\FlexBazaar.Order.Domain\FlexBazaar.Order.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\FlexBazaar.Order.Persistence\FlexBazaar.Order.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

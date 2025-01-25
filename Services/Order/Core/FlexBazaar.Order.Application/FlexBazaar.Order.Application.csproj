@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\CQRS\Commands\OrderDetailCommands\" />
     <Folder Include="Features\Mediator\" />
   </ItemGroup>
 
