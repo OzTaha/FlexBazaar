@@ -32,7 +32,7 @@ namespace FlexBazaar.Order.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> AddressListById(int id)
+        public async Task<ActionResult> GetAddressById(int id)
         {
           var values = await _getAddressByIdQueryHandler.Handle(new GetAddressByIdQuery(id));
             return Ok(values);
