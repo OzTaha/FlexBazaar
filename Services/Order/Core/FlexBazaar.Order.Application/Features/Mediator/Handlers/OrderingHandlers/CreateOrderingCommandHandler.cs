@@ -23,9 +23,9 @@ namespace FlexBazaar.Order.Application.Features.Mediator.Handlers.OrderingHandle
         {
             await _repository.CreateAsync(new Ordering
             {
-                UserId = request.UserId,
+                OrderDate = request.OrderDate,
                 TotalPrice = request.TotalPrice,
-                OrderDate = request.OrderDate
+                UserId = request.UserId                            
             });
         }
     }

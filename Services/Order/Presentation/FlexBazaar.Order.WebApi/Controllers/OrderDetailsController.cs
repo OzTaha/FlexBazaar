@@ -32,7 +32,7 @@ namespace FlexBazaar.Order.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetOrderDetailById(int id)
+        public async Task<IActionResult> GetOrderDetailById(int id)
         {
             var values = await _getOrderDetailByIdQueryHandler.Handle(new GetOrderDetailByIdQuery(id));
             return Ok(values);
@@ -44,13 +44,13 @@ namespace FlexBazaar.Order.WebApi.Controllers
             return Ok("Sipariş detayı başarıyla eklendi.");
         }
         [HttpDelete]
-        public async Task<ActionResult> RemoveOrderDetail(int id)
+        public async Task<IActionResult> RemoveOrderDetail(int id)
         {
             await _removeOrderDetailCommandHandler.Handle(new RemoveOrderDetailCommand(id));    
             return Ok("Sipariş detayı başarıyla silindi.");
         }
         [HttpPut]
-        public async Task<ActionResult> UpdateOrderDetail(UpdateOrderDetailCommand command)
+        public async Task<IActionResult> UpdateOrderDetail(UpdateOrderDetailCommand command)
         {
             await _updateOrderDetailCommandHandler.Handle(command);
             return Ok("Sipariş detayı başarıyla güncellendi.");
