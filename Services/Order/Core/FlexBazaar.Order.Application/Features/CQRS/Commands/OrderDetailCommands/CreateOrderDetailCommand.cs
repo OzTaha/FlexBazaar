@@ -13,6 +13,6 @@ namespace FlexBazaar.Order.Application.Features.CQRS.Commands.OrderDetailCommand
         public decimal ProductPrice { get; set; }
         public int ProductAmount { get; set; }
         public decimal ProductTotalPrice { get; set; }
-        public decimal OrderingId { get; set; }
+        public int OrderingId { get; set; }
     }
 }

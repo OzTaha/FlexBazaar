@@ -12,7 +12,7 @@ namespace FlexBazaar.Order.Persistence.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer("Server=...;initial Catalog=FlexBazaarOrderDb;integrated Sequrity=true;");
+           optionsBuilder.UseSqlServer("Server=localhost,1440;initial Catalog=FlexBazaarOrderDb;User=sa;Password=Qwe1-asd23..");
         }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }

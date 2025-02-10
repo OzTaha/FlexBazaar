@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlexBazaar.Order.Application.Features.CQRS.Results.AddressResults.OrderDetailResults
+namespace FlexBazaar.Order.Application.Features.CQRS.Results.OrderDetailResults
 {
     public class GetOrderDetailByIdQueryResult
     {
@@ -14,6 +14,6 @@ namespace FlexBazaar.Order.Application.Features.CQRS.Results.AddressResults.Orde
         public decimal ProductPrice { get; set; }
         public int ProductAmount { get; set; }
         public decimal ProductTotalPrice { get; set; }
-        public decimal OrderingId { get; set; }
+        public int OrderingId { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace FlexBazaar.Order.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOrderingById(int id)
         {
-            var values = await _mediator.Send(new GetOrderingByIdQuery (id);
+            var values = await _mediator.Send(new GetOrderingByIdQuery (id));
             return Ok(values);
         }
 

@@ -12,6 +12,7 @@ namespace FlexBazaar.Order.Application.Features.CQRS.Handlers.OrderDetailHandler
     public class CreateOrderDetailCommandHandler
     {
         private readonly IRepository<OrderDetail> _repository;
+
         public CreateOrderDetailCommandHandler(IRepository<OrderDetail> repository)
         {
             _repository = repository;
@@ -20,12 +21,12 @@ namespace FlexBazaar.Order.Application.Features.CQRS.Handlers.OrderDetailHandler
         {
             await _repository.CreateAsync(new OrderDetail
             {
+                ProductAmount = command.ProductAmount,
+                OrderingId = command.OrderingId,
                 ProductId = command.ProductId,
                 ProductName = command.ProductName,
-                ProductPrice = command.ProductPrice,
-                ProductAmount = command.ProductAmount,
-                ProductTotalPrice = command.ProductTotalPrice,
-                OrderingId = command.OrderingId
+                ProductPrice = command.ProductPrice,             
+                ProductTotalPrice = command.ProductTotalPrice              
             });
         }
     }

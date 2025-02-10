@@ -1,7 +1,7 @@
 ﻿using FlexBazaar.Order.Application.Features.CQRS.Queries.AddressQueries;
 using FlexBazaar.Order.Application.Features.CQRS.Queries.OrderDetailQueries;
 using FlexBazaar.Order.Application.Features.CQRS.Results.AddressResults;
-using FlexBazaar.Order.Application.Features.CQRS.Results.AddressResults.OrderDetailResults;
+using FlexBazaar.Order.Application.Features.CQRS.Results.OrderDetailResults;
 using FlexBazaar.Order.Application.Interfaces;
 using FlexBazaar.Order.Domain.Entities;
 using System;

@@ -20,7 +20,7 @@ namespace FlexBazaar.Order.Application.Features.CQRS.Handlers.OrderDetailHandler
         public async Task Handle(UpdateOrderDetailCommand command)
         {
             var values = await _repository.GetByIdAysnc(command.OrderDetailId);
-            values.OrderingId = command.OrderingId;
+           values.OrderingId = command.OrderingId;
             values.ProductId = command.ProductId;
             values.ProductPrice = command.ProductPrice;
             values.ProductName = command.ProductName;

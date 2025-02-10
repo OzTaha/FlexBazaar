@@ -9,7 +9,7 @@ namespace FlexBazaar.Order.Application.Interfaces
 {
     public interface IRepository<T> where T : class
     {
-        Task <List<T>> GetAllAsync();
+        Task<List<T>> GetAllAsync();
         Task<T> GetByIdAysnc(int id);
         Task CreateAsync(T entity);
         Task UpdateAsync(T entity);

@@ -15,7 +15,7 @@ namespace FlexBazaar.Order.Domain.Entities
         public int ProductAmount { get; set; }
         public decimal ProductTotalPrice { get; set; }
         // hesaplatarak bu toplam fiyatı çekeceğiz
-        public decimal OrderingId { get; set; }
+        public int OrderingId { get; set; }
         public Ordering Ordering { get; set; }
     }
 }

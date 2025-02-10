@@ -2,9 +2,12 @@ using FlexBazaar.Order.Application.Features.CQRS.Handlers.AddressHandlers;
 using FlexBazaar.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers;
 using FlexBazaar.Order.Application.Interfaces;
 using FlexBazaar.Order.Application.Services;
+using FlexBazaar.Order.Persistence.Context;
 using FlexBazaar.Order.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<OrderContext>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddApplicationService(builder.Configuration);
