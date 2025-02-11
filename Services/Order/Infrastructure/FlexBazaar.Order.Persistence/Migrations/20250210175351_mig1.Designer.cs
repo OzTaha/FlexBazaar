@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlexBazaar.Order.Persistence.Migrations
 {
     [DbContext(typeof(OrderContext))]
-    [Migration("20250209225718_mig1")]
+    [Migration("20250210175351_mig1")]
     partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,10 +61,7 @@ namespace FlexBazaar.Order.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderDetailId"), 1L, 1);
 
-                    b.Property<decimal>("OrderingId")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("OrderingId1")
+                    b.Property<int>("OrderingId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductAmount")
@@ -86,7 +83,7 @@ namespace FlexBazaar.Order.Persistence.Migrations
 
                     b.HasKey("OrderDetailId");
 
-                    b.HasIndex("OrderingId1");
+                    b.HasIndex("OrderingId");
 
                     b.ToTable("OrderDetails");
                 });
@@ -118,7 +115,7 @@ namespace FlexBazaar.Order.Persistence.Migrations
                 {
                     b.HasOne("FlexBazaar.Order.Domain.Entities.Ordering", "Ordering")
                         .WithMany("OrderDetails")
-                        .HasForeignKey("OrderingId1")
+                        .HasForeignKey("OrderingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

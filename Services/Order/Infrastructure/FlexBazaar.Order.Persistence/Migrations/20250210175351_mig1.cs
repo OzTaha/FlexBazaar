@@ -51,24 +51,23 @@ namespace FlexBazaar.Order.Persistence.Migrations
                     ProductPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ProductAmount = table.Column<int>(type: "int", nullable: false),
                     ProductTotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    OrderingId = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    OrderingId1 = table.Column<int>(type: "int", nullable: false)
+                    OrderingId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_OrderDetails", x => x.OrderDetailId);
                     table.ForeignKey(
-                        name: "FK_OrderDetails_Orderings_OrderingId1",
-                        column: x => x.OrderingId1,
+                        name: "FK_OrderDetails_Orderings_OrderingId",
+                        column: x => x.OrderingId,
                         principalTable: "Orderings",
                         principalColumn: "OrderingId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderDetails_OrderingId1",
+                name: "IX_OrderDetails_OrderingId",
                 table: "OrderDetails",
-                column: "OrderingId1");
+                column: "OrderingId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

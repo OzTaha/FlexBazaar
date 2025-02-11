@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Order.Persistenc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Order.WebApi", "Services\Order\Presentation\FlexBazaar.Order.WebApi\FlexBazaar.Order.WebApi.csproj", "{DA66091A-321F-4370-8F41-84A229F209E3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{CA92A2A4-C627-4DD7-9B69-7B291724BC52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.IdentityServer", "IdentityServer\FlexBazaar.IdentityServer\FlexBazaar.IdentityServer.csproj", "{D7BBB0F3-0F8D-4691-98E3-B0F5F6048057}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,10 @@ Global
 		{DA66091A-321F-4370-8F41-84A229F209E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA66091A-321F-4370-8F41-84A229F209E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA66091A-321F-4370-8F41-84A229F209E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7BBB0F3-0F8D-4691-98E3-B0F5F6048057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7BBB0F3-0F8D-4691-98E3-B0F5F6048057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7BBB0F3-0F8D-4691-98E3-B0F5F6048057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7BBB0F3-0F8D-4691-98E3-B0F5F6048057}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +84,7 @@ Global
 		{0239EDA6-78A9-4F2F-A660-1208DE30EE96} = {8AC94C52-FD23-42C0-BE7D-457944C1857A}
 		{73878FA6-C1B4-47EF-AACC-DAE042D88555} = {B82C7318-87F1-4D1E-B916-323CC5F1E818}
 		{DA66091A-321F-4370-8F41-84A229F209E3} = {4495EEBF-B20D-47CF-AE3E-3A95393E9F3E}
+		{D7BBB0F3-0F8D-4691-98E3-B0F5F6048057} = {CA92A2A4-C627-4DD7-9B69-7B291724BC52}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA159D74-788F-47B9-92B9-E3AAF814AE91}
