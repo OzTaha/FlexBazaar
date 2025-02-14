@@ -31,7 +31,10 @@ namespace FlexBazaar.IdentityServer
             services.AddControllersWithViews();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            //options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+        // SqlLite yerine SqlServer kullanmasını sağlıyoruz. 
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()

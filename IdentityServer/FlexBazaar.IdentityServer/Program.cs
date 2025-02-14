@@ -12,6 +12,8 @@ using Serilog.Sinks.SystemConsole.Themes;
 using System;
 using System.Linq;
 
+
+
 namespace FlexBazaar.IdentityServer
 {
     public class Program
