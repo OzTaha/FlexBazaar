@@ -22,19 +22,25 @@ namespace FlexBazaar.IdentityServer
            new ApiResource("ResourceOrder"){
                Scopes = { "OrderFullPermission"}
            },
+           new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
        };
+        // kimlik kaynaklarını tanımlayan özellik
         public static IEnumerable<IdentityResource> IdentityResources => new IdentityResource[]
         {
-            new IdentityResources.OpenId(),
-            new IdentityResources.Email(),
-            new IdentityResources.Profile()
+            //// kimlik doğrulaması 
+            //new IdentityResources.OpenId(),
+            //// email kimlik kaynağı
+            //new IdentityResources.Email(),
+            //// profil kimlik kaynağı
+            //new IdentityResources.Profile()
         };
         public static IEnumerable<ApiScope> ApiScopes => new ApiScope[]
         {
             new ApiScope("CatalogFullPermission", "Full authority for catalog operations"),
             new ApiScope("CatalogReadPermission", "Read authority for catalog operations"),
             new ApiScope("DiscountFullPermission", "Full authority for discount operations"),
-            new ApiScope("OrderFullPermission", "Full authority for order operations")
+            new ApiScope("OrderFullPermission", "Full authority for order operations"),
+            new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
         };
         public static IEnumerable<Client> Clients => new Client[]
         {

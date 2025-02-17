@@ -28,6 +28,8 @@ namespace FlexBazaar.IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // bu metod ile yerelde bir token oluşturulur ve bu token ile kimlik doğrulama yapılır
+            services.AddLocalApiAuthentication();
             services.AddControllersWithViews();
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -51,6 +53,7 @@ namespace FlexBazaar.IdentityServer
                 options.EmitStaticAudienceClaim = true;
             })
                 .AddInMemoryIdentityResources(Config.IdentityResources)
+                .AddInMemoryApiResources(Config.ApiResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
                 .AddAspNetIdentity<ApplicationUser>();
@@ -83,6 +86,7 @@ namespace FlexBazaar.IdentityServer
 
             app.UseRouting();
             app.UseIdentityServer();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
