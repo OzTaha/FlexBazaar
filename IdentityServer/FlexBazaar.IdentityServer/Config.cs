@@ -27,12 +27,12 @@ namespace FlexBazaar.IdentityServer
         // kimlik kaynaklarını tanımlayan özellik
         public static IEnumerable<IdentityResource> IdentityResources => new IdentityResource[]
         {
-            //// kimlik doğrulaması 
-            //new IdentityResources.OpenId(),
-            //// email kimlik kaynağı
-            //new IdentityResources.Email(),
-            //// profil kimlik kaynağı
-            //new IdentityResources.Profile()
+            // kimlik doğrulaması 
+            new IdentityResources.OpenId(),
+            // email kimlik kaynağı
+            new IdentityResources.Email(),
+            // profil kimlik kaynağı
+            new IdentityResources.Profile()
         };
         public static IEnumerable<ApiScope> ApiScopes => new ApiScope[]
         {
@@ -53,7 +53,7 @@ namespace FlexBazaar.IdentityServer
                 // kimlik işlemleri için kullanılacak property
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission"}
+                AllowedScopes = { "DiscountFullPermission" }
             },
 
             // Manager

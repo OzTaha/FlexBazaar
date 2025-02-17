@@ -1,7 +1,17 @@
 using FlexBazaar.Discount.Context;
 using FlexBazaar.Discount.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.Authority = builder.Configuration["IdentityServerUrl"];
+    // oluþturulan tokenlerle hangi sayfalara eriþileceðini belirler
+    opt.Audience = "ResourceDiscount";
+    // http kullanmak için. fakat canlýya alacaðýn zaman yorum satýrýna al. 
+    opt.RequireHttpsMetadata = false;
+});
 
 // Add services to the container.
 builder.Services.AddTransient<DapperContext>();
@@ -22,6 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
