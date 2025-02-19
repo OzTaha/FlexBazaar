@@ -1,11 +1,13 @@
 ﻿using FlexBazaar.Order.Application.Features.Mediator.Commands.OrderingCommands;
 using FlexBazaar.Order.Application.Features.Mediator.Queries.OrderingQueries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FlexBazaar.Order.WebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class OrderingsController : ControllerBase

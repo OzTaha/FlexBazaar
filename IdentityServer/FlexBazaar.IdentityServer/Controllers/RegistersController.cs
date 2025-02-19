@@ -38,7 +38,7 @@ namespace FlexBazaar.IdentityServer.Controllers
             } 
             else
             {
-                return Ok("Bir hata oluştu tekrar deneyin.");
+                  return Ok("Bir hata oluştu tekrar deneyin.");
                 //var errors = string.Join(", ", result.Errors.Select(x => x.Description));
                 //return BadRequest($"Bir hata oluştu: {errors}");
             }

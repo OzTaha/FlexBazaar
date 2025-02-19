@@ -4,8 +4,18 @@ using FlexBazaar.Order.Application.Interfaces;
 using FlexBazaar.Order.Application.Services;
 using FlexBazaar.Order.Persistence.Context;
 using FlexBazaar.Order.Persistence.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.Authority = builder.Configuration["IdentityServerUrl"];
+    // oluþturulan tokenlerle hangi sayfalara eriþileceðini belirler
+    opt.Audience = "ResourceOrder";
+    // http kullanmak için. fakat canlýya alacaðýn zaman yorum satýrýna al. 
+    opt.RequireHttpsMetadata = false;
+});
 
 builder.Services.AddDbContext<OrderContext>();
 
@@ -41,6 +51,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
