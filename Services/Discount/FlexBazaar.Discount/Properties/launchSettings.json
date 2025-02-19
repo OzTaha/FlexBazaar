@@ -12,9 +12,12 @@
     "FlexBazaar.Discount": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
+      // uygulama çalışsın ama browser açılmasın diye false yapıldı.
+      "launchBrowser": false,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7165;http://localhost:5217",
+      // yeni sekmede açmasın diye http://localhost:5217'i silindi.
+      // 7165 port numarası 7018 olarak değiştirildi.
+      "applicationUrl": "https://localhost:7018",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
