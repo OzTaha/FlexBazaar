@@ -12,9 +12,11 @@
     "FlexBazaar.Cargo.WebApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
+      // uygulama çalışsın ama browser açılmasın diye false yapıldı.
+      "launchBrowser": false,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7019;http://localhost:5280",
+      // yeni sekmede açmasın diye http://localhost:5280'i silindi.
+      "applicationUrl": "https://localhost:7020",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
