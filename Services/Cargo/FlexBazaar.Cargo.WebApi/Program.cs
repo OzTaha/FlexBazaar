@@ -3,8 +3,18 @@ using FlexBazaar.Cargo.BusinessLayer.Concrete;
 using FlexBazaar.Cargo.DataAccessLayer.Abstract;
 using FlexBazaar.Cargo.DataAccessLayer.Concrete;
 using FlexBazaar.Cargo.DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.Authority = builder.Configuration["IdentityServerUrl"];
+    // oluþturulan tokenlerle hangi sayfalara eriþileceðini belirler
+    opt.Audience = "ResourceCargo";
+    // http kullanmak için. fakat canlýya alacaðýn zaman yorum satýrýna al. 
+    opt.RequireHttpsMetadata = false;
+});
 
 builder.Services.AddDbContext<CargoContext>();
 builder.Services.AddScoped<ICargoCompanyDal, EfCargoCompanyDal>();
@@ -31,6 +41,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

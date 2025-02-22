@@ -22,6 +22,10 @@ namespace FlexBazaar.IdentityServer
            new ApiResource("ResourceOrder"){
                Scopes = { "OrderFullPermission"}
            },
+           new ApiResource("ResourceCargo")
+           {
+               Scopes = { "CargoFullPermission"}
+           },
            new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
        };
         // kimlik kaynaklarını tanımlayan özellik
@@ -40,6 +44,7 @@ namespace FlexBazaar.IdentityServer
             new ApiScope("CatalogReadPermission", "Read authority for catalog operations"),
             new ApiScope("DiscountFullPermission", "Full authority for discount operations"),
             new ApiScope("OrderFullPermission", "Full authority for order operations"),
+            new ApiScope("CargoFullPermission", "Full authority for cargo operations"),
             new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
         };
         public static IEnumerable<Client> Clients => new Client[]
@@ -73,12 +78,13 @@ namespace FlexBazaar.IdentityServer
                 ClientName = "Flex Bazaar Admin User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission",
+                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
                 IdentityServerConstants.StandardScopes.Profile
                 },
+                // token süresi
                 AccessTokenLifetime = 600
             }
         };
