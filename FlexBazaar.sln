@@ -52,6 +52,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Cargo.DtoLayer",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Cargo.WebApi", "Services\Cargo\FlexBazaar.Cargo.WebApi\FlexBazaar.Cargo.WebApi.csproj", "{8B258608-5ECC-4E14-8C69-AB4E2D903B8B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{F3C85B6C-E254-4F4F-B667-F86F92D65605}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Basket", "Services\Basket\FlexBazaar.Basket\FlexBazaar.Basket.csproj", "{CE0D7C5F-CBF2-4530-AFF9-614AB3FAADD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +110,10 @@ Global
 		{8B258608-5ECC-4E14-8C69-AB4E2D903B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B258608-5ECC-4E14-8C69-AB4E2D903B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B258608-5ECC-4E14-8C69-AB4E2D903B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE0D7C5F-CBF2-4530-AFF9-614AB3FAADD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE0D7C5F-CBF2-4530-AFF9-614AB3FAADD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0D7C5F-CBF2-4530-AFF9-614AB3FAADD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0D7C5F-CBF2-4530-AFF9-614AB3FAADD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +138,8 @@ Global
 		{024716F3-AE40-46E2-BE77-006576C5EBFA} = {21CD6EB5-FF78-4B74-BF46-037C777D7E5D}
 		{2371BBAE-96BC-49C2-8B39-36D880CD29AC} = {21CD6EB5-FF78-4B74-BF46-037C777D7E5D}
 		{8B258608-5ECC-4E14-8C69-AB4E2D903B8B} = {21CD6EB5-FF78-4B74-BF46-037C777D7E5D}
+		{F3C85B6C-E254-4F4F-B667-F86F92D65605} = {F7F775B1-E31D-4760-B744-34819E57251A}
+		{CE0D7C5F-CBF2-4530-AFF9-614AB3FAADD2} = {F3C85B6C-E254-4F4F-B667-F86F92D65605}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA159D74-788F-47B9-92B9-E3AAF814AE91}
