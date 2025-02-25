@@ -25,6 +25,10 @@ namespace FlexBazaar.IdentityServer
            new ApiResource("ResourceCargo")
            {
                Scopes = { "CargoFullPermission"}
+           }, 
+           new ApiResource("ResourceBasket")
+           {
+               Scopes = { "BaskeFullPermission" }
            },
            new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
        };
@@ -45,6 +49,7 @@ namespace FlexBazaar.IdentityServer
             new ApiScope("DiscountFullPermission", "Full authority for discount operations"),
             new ApiScope("OrderFullPermission", "Full authority for order operations"),
             new ApiScope("CargoFullPermission", "Full authority for cargo operations"),
+            new ApiScope("BaskeFullPermission", "Full authority for basket operations"),
             new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
         };
         public static IEnumerable<Client> Clients => new Client[]
@@ -66,7 +71,8 @@ namespace FlexBazaar.IdentityServer
             {
                 ClientId = "FlexBazaarManagerId",
                 ClientName = "Flex Bazaar Manager User",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                // kullanıcının şifresine göre 
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
                 AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission"}
             },
@@ -76,9 +82,9 @@ namespace FlexBazaar.IdentityServer
             {
                 ClientId = "FlexBazaarAdminId",
                 ClientName = "Flex Bazaar Admin User",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission",
+                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission","BaskeFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
