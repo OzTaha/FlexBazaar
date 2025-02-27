@@ -15,13 +15,13 @@ namespace FlexBazaar.Basket.Services
 
         public async Task DeleteBasket(string userId)
         {
-           var status = await _redisService.GetDb().KeyDeleteAsync(userId);
+           await _redisService.GetDb().KeyDeleteAsync(userId);
 
         }
        
         public async Task<BasketTotalDto> GetBasket(string userId)
         {
-            //  Redis üzerinde userId key'i ile saklanan sepet bilgisini asenkron olarak alır.
+            //  Redis üzerinde userId key'i ile saklanan sepet bilgisini alır.
             var existBasket = await _redisService.GetDb().StringGetAsync(userId);
             // Redis'ten alınan JSON formatındaki sepet bilgisini (existBasket), BasketTotalDto türünde bir nesneye dönüştürür.
             // BasketTotalDto türündeki nesneyi döner. Bu nesne, kullanıcının sepetindeki ürünlerin toplam bilgilerini içerir.

@@ -40,7 +40,7 @@ namespace FlexBazaar.Basket.Controllers
         public async Task<IActionResult> DeleteMyBasket()
         {
             await _basketService.DeleteBasket(_loginService.GetUserId);
-            return Ok("Sepet başarıylasilindi");
+            return Ok("Sepet başarıyla silindi");
         }
     }
 }

@@ -13,6 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
+// .net 8 için
+// JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(opt =>
@@ -24,7 +26,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         opt.RequireHttpsMetadata = false;
     });
 
-// Registiration iþlemleri
+// Configuration iþlemleri
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IBasketService, BasketService>();
@@ -36,7 +38,7 @@ builder.Services.AddSingleton<RedisService>(sp =>
     redis.Connect();
     return redis;
 });
-// Registiration iþlemleri
+// Configuration iþlemleri
 
 builder.Services.AddControllers (opt =>
 {
