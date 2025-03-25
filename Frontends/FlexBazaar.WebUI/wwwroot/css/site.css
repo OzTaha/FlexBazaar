@@ -26,3 +26,15 @@ body {
     height: 100%;
     object-fit: cover;
 }*/
+
+.shopping-cart-table img {
+   height: 50px;
+    object-fit: cover;
+}
+
+    .shopping-cart-table :is(tr) td:nth-child(1)  {
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
