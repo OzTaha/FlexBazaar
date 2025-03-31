@@ -1,0 +1,375 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    @await Component.InvokeAsync("_AdminLayoutHeadComponentPartial")
+
+<body class="sidebar-mini">
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        @await Component.InvokeAsync("_AdminLayoutHeaderComponentPartial")
+       
+        <!-- Left side column. contains the logo and sidebar -->
+        @await Component.InvokeAsync("_AdminLayoutSidebarComponentPartial")
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>Basic Tables</h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="active"><i class="fa fa-envelope-o"></i> Tables</li>
+                    <li class="active"><i class="fa fa-bars"></i> Basic Tables</li>
+                </ol>
+            </section>
+
+            <!-- Main content -->
+            <section class="content container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="chart-box">
+                            <h4>Basic Tables</h4>
+                            <p>For basic styling&mdash;light padding and only horizontal dividers&mdash;add the base class <code>.table</code> to any <code>&lt;table&gt;</code>. It may seem super redundant, but given the widespread use of tables for other plugins like calendars and date pickers, we've opted to isolate our custom table styles.</p>
+                            <div class="bs-example" data-example-id="simple-table">
+                                <table class="table">
+                                    <caption>
+                                        Optional table caption.
+                                    </caption>
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>mdo</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>fat</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+                                            <td>the Bird</td>
+                                            <td>twitter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="chart-box">
+                            <h4>Bordered Table</h4>
+                            <p>Add <code>.table-bordered</code> for borders on all sides of the table and cells.</p>
+                            <div class="bs-example" data-example-id="bordered-table">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>mdo</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>fat</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+                                            <td>the Bird</td>
+                                            <td>twitter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="chart-box">
+                            <h4>Hover Rows</h4>
+                            <p>Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
+                            <div class="bs-example" data-example-id="hoverable-table">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>mdo</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>fat</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+                                            <td>the Bird</td>
+                                            <td>twitter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="chart-box">
+                            <h4>Contextual Classes</h4>
+                            <p>Use contextual classes to color table rows or individual cells.</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <colgroup>
+                                        <col class="col-xs-1">
+                                        <col class="col-xs-7">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"> <code>.active</code> </th>
+                                            <td>Applies the hover color to a particular row or cell</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"> <code>.success</code> </th>
+                                            <td>Indicates a successful or positive action</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"> <code>.info</code> </th>
+                                            <td>Indicates a neutral informative change or action</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"> <code>.warning</code> </th>
+                                            <td>Indicates a warning that might need attention</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"> <code>.danger</code> </th>
+                                            <td>Indicates a dangerous or potentially negative action</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="bs-example m-top-2" data-example-id="contextual-table">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Column heading</th>
+                                            <th>Column heading</th>
+                                            <th>Column heading</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="active">
+                                            <th scope="row">1</th>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                        </tr>
+                                        <tr class="success">
+                                            <th scope="row">3</th>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                        </tr>
+                                        <tr class="info">
+                                            <th scope="row">5</th>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">6</th>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                        </tr>
+                                        <tr class="warning">
+                                            <th scope="row">7</th>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">8</th>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                        </tr>
+                                        <tr class="danger">
+                                            <th scope="row">9</th>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                            <td>Column content</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="chart-box">
+                            <h4>Responsive Tables</h4>
+                            <p>Create responsive tables by wrapping any <code>.table</code> in <code>.table-responsive</code> to make them scroll horizontally on small devices (under 768px). When viewing on anything larger than 768px wide, you will not see any difference in these tables.</p>
+                            <div class="bs-example" data-example-id="simple-responsive-table">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Table heading</th>
+                                                <th>Table heading</th>
+                                                <th>Table heading</th>
+                                                <th>Table heading</th>
+                                                <th>Table heading</th>
+                                                <th>Table heading</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-responsive m-top-2">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Table heading</th>
+                                                <th>Table heading</th>
+                                                <th>Table heading</th>
+                                                <th>Table heading</th>
+                                                <th>Table heading</th>
+                                                <th>Table heading</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                                <td>Table cell</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- content -->
+        </div>
+        <!-- content-wrapper -->
+        <!-- Main Footer -->
+        <footer class="main-footer dark-bg">
+            <div class="pull-right hidden-xs"> Version 1.0</div>
+            Copyright &copy; 2017 Yourdomian. All rights reserved.
+        </footer>
+    </div>
+    <!-- wrapper -->
+    <!-- jQuery -->
+    <script src="~/MainDownload-OvioAdmin-html5-template/html/dist/js/jquery.min.js"></script>
+    <script src="~/MainDownload-OvioAdmin-html5-template/html/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/MainDownload-OvioAdmin-html5-template/html/dist/js/ovio.js"></script>
+</body>
+</html>
