@@ -1,8 +1,47 @@
-﻿
+﻿@model List<FlexBazaar.DtoLayer.CatalogDtos.CategoryDtos.ResultCategoryDto>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>Index</h1>
+<section class="content container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Kategori Listesi</h4>
+                <p>Kategori ile ilgili işlemleri aşağıdaki tablo üzerinden gerçekleştirebilirsiniz.</p>
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kategori Adı</th>
+                                <th>Kategoriye Ait Ürünler</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model) {
+                                <tr>
+                                    <th scope="row">@item.CategoryId</th>
+                                    <td>@item.CategoryName</td>
+                                    <td>
+                                        <a href="#" class="btn btn-warning">Kategoriye Ait Ürünler</a>
+                                        <a href="#" class="btn btn-danger">Sil</a>
+                                        <a href="#" class="btn btn-success">Güncelle</a>
+                                    </td>
+                                </tr>
+                            }                                             
+                        </tbody>                     
+                    </table>
+                    <a href="#" class="btn btn-primary">Yeni Kategori Girişi</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 

@@ -28,4 +28,8 @@
     <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FlexBazaar.DtoLayer\FlexBazaar.DtoLayer.csproj" />
+  </ItemGroup>
+
 </Project>

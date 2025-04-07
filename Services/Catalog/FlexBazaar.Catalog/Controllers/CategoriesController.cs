@@ -3,10 +3,13 @@ using FlexBazaar.Catalog.Services.CategoryServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using FlexBazaar.Catalog.Entities;
 
 namespace FlexBazaar.Catalog.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
+    //[Authorize]
+    // [Authorize] --> test amaçlı kuralları görmezden gelebilmesi için authorized yorum satırına alındı. Canlıya alınacağı zaman yorum satırıdan çıkar!!!
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
