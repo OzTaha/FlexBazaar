@@ -24,7 +24,8 @@ namespace FlexBazaar.Catalog.Controllers
         [HttpGet]
         public async Task<IActionResult> CategoryList()
         {
-            var values  = await _categoryService.GetAllCategoryAsync();
+
+            var values = await _categoryService.GetAllCategoryAsync();
             return Ok(values);
         }
 
