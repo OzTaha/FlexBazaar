@@ -9,7 +9,7 @@ namespace FlexBazaar.Catalog.Controllers
 {
     [AllowAnonymous]
     //[Authorize]
-    // [Authorize] --> test amaçlı kuralları görmezden gelebilmesi için authorized yorum satırına alındı. Canlıya alınacağı zaman yorum satırıdan çıkar!!!
+    // [Authorize] --> test amaçlı kuralları görmezden gelebilmesi için authorize yorum satırına alındı. Canlıya alınacağı zaman yorum satırıdan çıkar!!!
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase

@@ -17,7 +17,8 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         public CategoryController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
-        }
+        }      
+
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
@@ -26,19 +27,9 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
             ViewBag.v3 = "Kategori Listesi";
             ViewBag.v0 = "Kategori İşlemleri";
 
-            //var client = _httpClientFactory.CreateClient();
+            var client = _httpClientFactory.CreateClient();
 
-            // SSL sertifikasını görmezden gelmesi için eklendi 
-            // canlıya alınacağında kaldır. 
-            var handler = new HttpClientHandler
-            {
-                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-            };
-
-            var client = new HttpClient(handler);
-            // SSL sertifikasını görmezden gelmesi için eklendi 
-
-            var responseMessage = await client.GetAsync("https://localhost:7017/api/Categories");
+            var responseMessage = await client.GetAsync("http://localhost:7017/api/Categories");
             if (responseMessage.IsSuccessStatusCode)
             {
                 // gelen veriyi string formatta okuyacak
@@ -65,17 +56,8 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         [Route("CreateCategory")]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
         {
-            //var client = _httpClientFactory.CreateClient();
-
-            // SSL sertifikasını görmezden gelmesi için eklendi 
-            // canlıya alınacağında kaldır.  
-            var handler = new HttpClientHandler
-            {
-                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-            };
-
-            var client = new HttpClient(handler);
-            // SSL sertifikasını görmezden gelmesi için eklendi 
+            var client = _httpClientFactory.CreateClient();
+          
 
             // metin formatındaki değeri alıp json formatına çeviriyor (serialize)
             // gönderilen createCategoryDto parametresi ilk önce json formatına çevriliyor
@@ -83,7 +65,7 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
             // json formatındaki veriyi stringContent'e çeviriyor. ve hangi türde olduğu belirtiliyor
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             // stringContent'i post ediliyor
-            var responseMessage = await client.PostAsync("https://localhost:7017/api/Categories", stringContent);
+            var responseMessage = await client.PostAsync("http://localhost:7017/api/Categories", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 // başarılı bir şekilde post edildiyse
@@ -95,19 +77,9 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         [Route("DeleteCategory/{id}")]
         public async Task<IActionResult> DeleteCategory(string id) {
             // canlıya alınacağı zaman yorum satırından çıkar.
-            //var client = _httpClientFactory.CreateClient();
-
-            // SSL sertifikasını görmezden gelmesi için eklendi 
-            // canlıya alınacağında kaldır. 
-            var handler = new HttpClientHandler
-            {
-                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-            };
-
-            var client = new HttpClient(handler);
-            // SSL sertifikasını görmezden gelmesi için eklendi 
-
-            var responseMessage = await client.DeleteAsync("https://localhost:7017/api/Categories?id=" + id);
+           var client = _httpClientFactory.CreateClient();
+          
+            var responseMessage = await client.DeleteAsync("http://localhost:7017/api/Categories?id=" + id);
             if(responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index", "Category", new { area = "Admin" });

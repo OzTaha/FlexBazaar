@@ -17,7 +17,7 @@
       "launchUrl": "swagger",
       // yeni sekmede açmasın diye http://localhost:5238'i silindi.
       // 7180 port numarası 7019 olarak değiştirildi.
-      "applicationUrl": "https://localhost:7019",
+      "applicationUrl": "http://localhost:7019",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

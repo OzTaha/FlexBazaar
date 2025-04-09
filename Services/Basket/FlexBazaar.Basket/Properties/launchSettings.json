@@ -15,7 +15,7 @@
       "launchBrowser": false,
       "launchUrl": "swagger",
       // yeni sekmede açmasın diye http://localhost:5165'i silindi.
-      "applicationUrl": "https://localhost:7021",
+      "applicationUrl": "http://localhost:7021",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

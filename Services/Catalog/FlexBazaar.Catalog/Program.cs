@@ -9,6 +9,7 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer( opt =>
     {
         opt.Authority = builder.Configuration["IdentityServerUrl"];
