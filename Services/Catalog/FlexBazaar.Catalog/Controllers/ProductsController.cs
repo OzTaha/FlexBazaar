@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FlexBazaar.Catalog.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
