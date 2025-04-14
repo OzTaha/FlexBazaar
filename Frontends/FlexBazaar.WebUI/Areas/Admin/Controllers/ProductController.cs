@@ -44,6 +44,27 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
             return View();
         }
 
+        [Route("ProductListWithCategory")]
+        public async Task<IActionResult> ProductListWithCategory()
+        {
+            ViewBag.v1 = "Anasaya";
+            ViewBag.v2 = "Ürünler";
+            ViewBag.v3 = "Ürün Listesi";
+            ViewBag.v0 = "Ürün İşlemleri";
+
+            var client = _httpClientFactory.CreateClient();
+
+            var responseMessage = await client.GetAsync("http://localhost:7017/api/Products/ProductListWithCategory");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                // gelen veriyi string formatta okuyacak
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultProductWithCategoryDto>>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
         [Route("CreateProduct")]
         [HttpGet]
         public async Task<IActionResult> CreateProduct()

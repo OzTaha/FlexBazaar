@@ -1,13 +1,9 @@
-﻿using FlexBazaar.DtoLayer.CatalogDtos.CategoryDtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FlexBazaar.Catalog.Dtos.CategoryDtos;
+using FlexBazaar.Catalog.Entities;
 
-namespace FlexBazaar.DtoLayer.CatalogDtos.ProductDtos
+namespace FlexBazaar.Catalog.Dtos.ProductDtos
 {
-    public class ResultProductWithCategoryDto
+    public class ResultProductsWithCategoryDto
     {
         public string ProductId { get; set; }
         public string ProductName { get; set; }
