@@ -19,7 +19,7 @@ namespace FlexBazaar.Catalog.Services.CategoryServices
         // IMapper: Veri transfer objeleri (DTO'lar) ile Entity'ler arasında otomatik dönüşüm yapmayı sağlayan bir araçtır.
         private readonly IMapper _mapper;
 
-        //rvis çalışabilmesi için MongoDB koleksiyonu ve AutoMapper nesnesine ihtiyaç duyar. Bu bağımlılıklar, dependency injection (DI) kullanılarak constructor aracılığıyla alınır:
+        //servis çalışabilmesi için MongoDB koleksiyonu ve AutoMapper nesnesine ihtiyaç duyar. Bu bağımlılıklar, dependency injection (DI) kullanılarak constructor aracılığıyla alınır:
         public CategoryService(IMapper mapper, IDatabaseSettings _databaseSetting)
         {
             // MongoClient database bağlantısı için kullanılır.

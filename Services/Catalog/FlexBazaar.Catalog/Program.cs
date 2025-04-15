@@ -1,4 +1,5 @@
 using FlexBazaar.Catalog.Services.CategoryServices;
+using FlexBazaar.Catalog.Services.FeatureSliderServices;
 using FlexBazaar.Catalog.Services.ProductDetailServices;
 using FlexBazaar.Catalog.Services.ProductImageServices;
 using FlexBazaar.Catalog.Services.ProductServices;
@@ -24,6 +25,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<IProductImageService, ProductImageService>();
+builder.Services.AddScoped<IFeatureSliderService, FeatureSliderService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FlexBazaar.Catalog.Dtos.CategoryDtos;
+using FlexBazaar.Catalog.Dtos.FeatureSliderDtos;
 using FlexBazaar.Catalog.Dtos.ProductDetailDtos;
 using FlexBazaar.Catalog.Dtos.ProductDtos;
 using FlexBazaar.Catalog.Dtos.ProductImageDtos;
@@ -31,6 +32,11 @@ namespace FlexBazaar.Catalog.Mapping
             CreateMap<ProductImage, GetByIdProductImageDto>().ReverseMap(); 
 
             CreateMap<Product, ResultProductsWithCategoryDto>().ReverseMap();
+
+            CreateMap<FeatureSlider, ResultFeatureSliderDto>().ReverseMap();
+            CreateMap<FeatureSlider, CreateFeatureSliderDto>().ReverseMap();
+            CreateMap<FeatureSlider, UpdateFeatureSliderDto>().ReverseMap();
+            CreateMap<FeatureSlider, GetByIdFeatureSliderDto>().ReverseMap();
         } 
     }
 }
