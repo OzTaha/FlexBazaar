@@ -1,7 +1,11 @@
-﻿<div class="container-fluid mb-3">
+﻿@model List<ResultFeatureSliderDto>
+@* @{
+    int count = 0; 
+} *@
+<div class="container-fluid mb-3">
     <div class="row px-xl-5">
         <div class="col-lg-8">
-            <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
+        @*     <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
                     <li data-target="#header-carousel" data-slide-to="1"></li>
@@ -9,46 +13,57 @@
                     <li data-target="#header-carousel" data-slide-to="3"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item position-relative active" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="~/images/carousel_1.webp" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Trend Kıyafetler</h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Tarzını Keşfet, Stilini Belirle! Koleksiyonumuzda kendini bulacağın bir tasarım mutlaka var! </p>
-                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                    @foreach(var item in Model) {
+                        count++;
+                        if(count == 1) {
+                            <div class="carousel-item position-relative active" style="height: 430px;">
+                                <img class="position-absolute w-100 h-100" src="@item.ImageUrl" style="object-fit: cover;">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <div class="p-3" style="max-width: 700px;">
+                                        <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">@item.Title</h1>
+                                        <p class="mx-md-5 px-5 animate__animated animate__bounceIn">@item.Description</p>
+                                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }      
+                        else if(count > 1) {
+                            <div class="carousel-item position-relative" style="height: 430px;">
+                                <img class="position-absolute w-100 h-100" src="@item.ImageUrl" style="object-fit: cover;">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <div class="p-3" style="max-width: 700px;">
+                                        <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">@item.Title</h1>
+                                        <p class="mx-md-5 px-5 animate__animated animate__bounceIn">@item.Description</p>
+                                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }                  
+                </div>
+            </div> *@
+            <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <li data-target="#header-carousel" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
+                    }
+                </ol>
+                <div class="carousel-inner">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        var item = Model[i];
+                        <div class="carousel-item position-relative @(i == 0 ? "active" : "")" style="height: 430px;">
+                            <img class="position-absolute w-100 h-100" src="@item.ImageUrl" style="object-fit: cover;">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">@item.Title</h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">@item.Description</p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item position-relative" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="~/images/carousel_2.webp" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Sezonun Vazgeçilmez Elbiseleri</h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc.</p>
-                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item position-relative" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="~/images/carousel_3.webp" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">En Trend Kadın Modası</h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc.</p>
-                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="carousel-item position-relative" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="~/images/carousel_4.webp" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Ayakkabı</h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc.</p>
-                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
