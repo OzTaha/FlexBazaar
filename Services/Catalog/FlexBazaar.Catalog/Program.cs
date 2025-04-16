@@ -3,6 +3,7 @@ using FlexBazaar.Catalog.Services.FeatureSliderServices;
 using FlexBazaar.Catalog.Services.ProductDetailServices;
 using FlexBazaar.Catalog.Services.ProductImageServices;
 using FlexBazaar.Catalog.Services.ProductServices;
+using FlexBazaar.Catalog.Services.SpecialOfferServices;
 using FlexBazaar.Catalog.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
@@ -26,6 +27,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<IProductImageService, ProductImageService>();
 builder.Services.AddScoped<IFeatureSliderService, FeatureSliderService>();
+builder.Services.AddScoped<ISpecialOfferService, SpecialOfferService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
