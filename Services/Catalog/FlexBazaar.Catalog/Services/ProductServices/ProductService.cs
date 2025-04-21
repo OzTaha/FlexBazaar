@@ -55,7 +55,9 @@ namespace FlexBazaar.Catalog.Services.ProductServices
             var values = await _productCollection.Find(x => true).ToListAsync();
             foreach (var item in values)
             {
-                 item.Category = await _categoryCollection.Find<Category>(x => x.CategoryId == item.CategoryId).FirstAsync();
+                //FirstAsync(), FirstOrDefaultAsync() olarak değiştirildi. 
+                // collection boş olduğunu rahatça kontrol etmenizi sağlar.
+                item.Category = await _categoryCollection.Find<Category>(x => x.CategoryId == item.CategoryId).FirstOrDefaultAsync();
             }
             return _mapper.Map<List<ResultProductsWithCategoryDto>>(values);
         }

@@ -30,7 +30,9 @@
                                     <th scope="row">@count</th>
                                     <td>@item.ProductName</td>
                                     <td>@item.ProductPrice</td>
-                                    <td>@item.Category.CategoryName</td>
+                                    @* <td>@item.Category.CategoryName</td> *@
+                                    @*kategori ile ilgili bir hata varsa "kategori yok" uyarısı verecek.*@
+                                    <td>@(item.Category != null ? item.Category.CategoryName : "Kategori Yok")</td>
                                     <td>
                                         <a href="/Admin/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a>
                                     </td>
@@ -45,7 +47,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
