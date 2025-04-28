@@ -7,15 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace FlexBazaar.Catalog.Controllers
 {
     [AllowAnonymous]
-    //[Authorize]
-    // [Authorize] --> test amaçlı kuralları görmezden gelebilmesi için authorize yorum satırına alındı. Canlıya alınacağı zaman yorum satırıdan çıkar!!!
     [Route("api/[controller]")]
     [ApiController]
-    public class OfferDiscountController : ControllerBase
+    public class OfferDiscountsController : ControllerBase
     {
         private readonly IOfferDiscountService _offerDiscountService;
 
-        public OfferDiscountController(IOfferDiscountService OfferDiscountService)
+        public OfferDiscountsController(IOfferDiscountService OfferDiscountService)
         {
             _offerDiscountService = OfferDiscountService;
         }

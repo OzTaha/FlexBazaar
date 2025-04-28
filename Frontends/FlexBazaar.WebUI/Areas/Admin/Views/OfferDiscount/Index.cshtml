@@ -3,11 +3,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
-    bool isDisabled = Model.Count >= 2;
-
-    string disabledAttribute = isDisabled ? "disabled" : "";
-
-    string isWorking = isDisabled ? "#" : "CreateDiscountOffer";
+    var isDisabled = Model.Count >= 2;
 }
 
 <section class="content container-fluid">
@@ -30,7 +26,7 @@
                             {
                                 <tr>
                                     <td>@item.Title</td>
-                                    <td>@item.Subtitle</td>
+                                    <td>@item.SubTitle</td>
                                     <td>
                                         <a href="/Admin/OfferDiscount/DeleteOfferDiscount/@item.OfferDiscountId" class="btn btn-danger">Sil</a>
                                     </td>
@@ -41,8 +37,7 @@
                             }
                         </tbody>
                     </table>
-                   @*  <a href="/Admin/OfferDiscount/CreateOfferDiscount/"  class="btn btn-primary">Yeni İndirim Teklifi Girişi</a> *@
-                    <a href="@isWorking" @disabledAttribute class="btn btn-primary">Yeni İndirim Teklifi Girişi</a>
+                    <a href="/Admin/OfferDiscount/CreateOfferDiscount/" class="btn btn-primary @(isDisabled ? "disabled" : "")">Yeni İndirim Teklifi Girişi</a>
                 </div>
             </div>
         </div>
