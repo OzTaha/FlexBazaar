@@ -1,3 +1,4 @@
+using FlexBazaar.Catalog.Services.BrandServices;
 using FlexBazaar.Catalog.Services.CategoryServices;
 using FlexBazaar.Catalog.Services.FeatureServices;
 using FlexBazaar.Catalog.Services.FeatureSliderServices;
@@ -32,6 +33,7 @@ builder.Services.AddScoped<IFeatureSliderService, FeatureSliderService>();
 builder.Services.AddScoped<ISpecialOfferService, SpecialOfferService>();
 builder.Services.AddScoped<IFeatureService, FeatureService>();
 builder.Services.AddScoped<IOfferDiscountService, OfferDiscountService>();
+builder.Services.AddScoped<IBrandService, BrandService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

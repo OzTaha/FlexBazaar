@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FlexBazaar.Catalog.Dtos.BrandDtos;
 using FlexBazaar.Catalog.Dtos.CategoryDtos;
 using FlexBazaar.Catalog.Dtos.FeatureDtos;
 using FlexBazaar.Catalog.Dtos.FeatureSliderDtos;
@@ -55,6 +56,11 @@ namespace FlexBazaar.Catalog.Mapping
             CreateMap<OfferDiscount, CreateOfferDiscountDto>().ReverseMap();
             CreateMap<OfferDiscount, UpdateOfferDiscountDto>().ReverseMap();
             CreateMap<OfferDiscount, GetByIdOfferDiscountDto>().ReverseMap();
+
+            CreateMap<Brand, ResultBrandDto>().ReverseMap();
+            CreateMap<Brand, CreateBrandDto>().ReverseMap();
+            CreateMap<Brand, UpdateBrandDto>().ReverseMap();
+            CreateMap<Brand, GetByIdBrandDto>().ReverseMap();
         } 
     }
 }
