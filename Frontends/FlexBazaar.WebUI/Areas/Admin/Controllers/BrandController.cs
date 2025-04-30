@@ -31,7 +31,6 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
             var responseMessage = await client.GetAsync("http://localhost:7017/api/Brands");
             if (responseMessage.IsSuccessStatusCode)
             {
-                // gelen veriyi string formatta okuyacak
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultBrandDto>>(jsonData);
                 return View(values);
@@ -57,17 +56,11 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-
-            // metin formatındaki değeri alıp json formatına çeviriyor (serialize)
-            // gönderilen createBrandDto parametresi ilk önce json formatına çevriliyor
             var jsonData = JsonConvert.SerializeObject(createBrandDto);
-            // json formatındaki veriyi stringContent'e çeviriyor. ve hangi türde olduğu belirtiliyor
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            // stringContent'i post ediliyor
             var responseMessage = await client.PostAsync("http://localhost:7017/api/Brands", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
-                // başarılı bir şekilde post edildiyse
                 return RedirectToAction("Index", "Brand", new { area = "Admin" });
             }
             return View();
@@ -76,7 +69,6 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         [Route("DeleteBrand/{id}")]
         public async Task<IActionResult> DeleteBrand(string id)
         {
-            // canlıya alınacağı zaman yorum satırından çıkar.
             var client = _httpClientFactory.CreateClient();
 
             var responseMessage = await client.DeleteAsync("http://localhost:7017/api/Brands?id=" + id);
@@ -114,7 +106,6 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         {
 
             var client = _httpClientFactory.CreateClient();
-            // metin formatındaki değeri alıp json formatına çeviriyor (serialize)
             var jsonData = JsonConvert.SerializeObject(updateBrandDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PutAsync("http://localhost:7017/api/Brands/", stringContent);
