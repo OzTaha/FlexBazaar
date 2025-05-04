@@ -22,21 +22,21 @@
 <div class="container-fluid">
     <div class="row px-xl-5">
         <!-- Shop Sidebar Start -->
-        <div class="col-lg-3 col-md-4">
+        
+            <div class="col-lg-3 col-md-4">
 
-            <!-- Price Start -->          
-            @await Component.InvokeAsync("_ProductListPriceFilterComponentPartial")  
-            <!-- Price End -->
+                <!-- Price Start -->
+                @await Component.InvokeAsync("_ProductListPriceFilterComponentPartial")
+                <!-- Price End -->
+                <!-- Color Start -->
+                @await Component.InvokeAsync("_ProductListColorFilterComponentPartial")
+                <!-- Color End -->
+                <!-- Size Start -->
+                @await Component.InvokeAsync("_ProductListSizeFilterComponentPartial")
 
-            <!-- Color Start -->          
-            @await Component.InvokeAsync("_ProductListColorFilterComponentPartial")          
-            <!-- Color End -->
-
-            <!-- Size Start -->
-            @await Component.InvokeAsync("_ProductListSizeFilterComponentPartial")  
-            
-            <!-- Size End -->
-        </div>
+                <!-- Size End -->
+            </div>
+       
         <!-- Shop Sidebar End -->
         <!-- Shop Product Start -->
         <div class="col-lg-9 col-md-8">

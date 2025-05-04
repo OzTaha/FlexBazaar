@@ -38,3 +38,15 @@ body {
         align-items: center !important;
         gap: 10px !important;
     }
+
+.product-item {
+    height: 400px;
+}
+
+.product-img {
+    height: 60%;
+}
+
+    .product-card-text-content {
+        height: 40%;
+    }

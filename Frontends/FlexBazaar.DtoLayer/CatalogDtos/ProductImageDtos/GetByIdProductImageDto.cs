@@ -1,4 +1,4 @@
-﻿namespace FlexBazaar.Catalog.Dtos.ProductImageDtos
+﻿namespace FlexBazaar.DtoLayer.CatalogDtos.ProductImageDtos
 {
     public class GetByIdProductImageDto
     {
