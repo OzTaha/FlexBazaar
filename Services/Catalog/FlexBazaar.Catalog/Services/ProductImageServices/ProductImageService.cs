@@ -36,6 +36,12 @@ namespace FlexBazaar.Catalog.Services.ProductImageServices
             await _ProductImageCollection.DeleteOneAsync(x => x.ProductImageId == id);
         }
 
+        public async Task<GetByIdProductImageDto> GetByProductIdProductImageAsync(string id)
+        {
+            var values = await _ProductImageCollection.Find(x => x.ProductId==id).FirstOrDefaultAsync();
+            return _mapper.Map<GetByIdProductImageDto>(values);
+        }
+
         public async Task<List<ResultProductImageDto>> GetAllProductImageAsync()
         {
             var values = await _ProductImageCollection.Find(x => true).ToListAsync();
@@ -46,7 +52,7 @@ namespace FlexBazaar.Catalog.Services.ProductImageServices
         {
             var values = await _ProductImageCollection.Find<ProductImage>(x => x.ProductImageId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdProductImageDto>(values);
-        }
+        }  
 
         public async Task UpdateProductImageAsync(UpdateProductImageDto updateProductImageDto)
         {
