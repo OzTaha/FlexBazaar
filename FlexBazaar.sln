@@ -63,6 +63,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.WebUI", "Fronten
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.DtoLayer", "Frontends\FlexBazaar.DtoLayer\FlexBazaar.DtoLayer.csproj", "{153B9BF4-1C4D-4216-BE9E-0BE78B79B958}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comment", "Comment", "{E9A5433C-4EA4-48EA-B9D2-F87AECAFA173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Comment", "Services\Comment\FlexBazaar.Comment\FlexBazaar.Comment.csproj", "{DA128756-DFAE-43BE-AF70-7661093F5127}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +133,10 @@ Global
 		{153B9BF4-1C4D-4216-BE9E-0BE78B79B958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{153B9BF4-1C4D-4216-BE9E-0BE78B79B958}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{153B9BF4-1C4D-4216-BE9E-0BE78B79B958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA128756-DFAE-43BE-AF70-7661093F5127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA128756-DFAE-43BE-AF70-7661093F5127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA128756-DFAE-43BE-AF70-7661093F5127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA128756-DFAE-43BE-AF70-7661093F5127}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,6 +165,8 @@ Global
 		{CE0D7C5F-CBF2-4530-AFF9-614AB3FAADD2} = {F3C85B6C-E254-4F4F-B667-F86F92D65605}
 		{ED15EC5D-7070-403D-9F1B-DCD580DA6765} = {13F08AE1-D21D-4998-A282-6E29AC5AE9F7}
 		{153B9BF4-1C4D-4216-BE9E-0BE78B79B958} = {13F08AE1-D21D-4998-A282-6E29AC5AE9F7}
+		{E9A5433C-4EA4-48EA-B9D2-F87AECAFA173} = {F7F775B1-E31D-4760-B744-34819E57251A}
+		{DA128756-DFAE-43BE-AF70-7661093F5127} = {E9A5433C-4EA4-48EA-B9D2-F87AECAFA173}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA159D74-788F-47B9-92B9-E3AAF814AE91}
