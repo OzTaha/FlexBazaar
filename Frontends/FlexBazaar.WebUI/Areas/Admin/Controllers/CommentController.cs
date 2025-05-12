@@ -76,7 +76,7 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateComment(UpdateCommentDto updateCommentDto)
         {
-
+            updateCommentDto.Status = true;
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateCommentDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
