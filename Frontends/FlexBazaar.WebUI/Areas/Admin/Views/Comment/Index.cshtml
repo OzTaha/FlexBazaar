@@ -16,6 +16,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Kullanıcı</th>
+                                <th>Ürün Adı</th>
                                 <th>Yorum</th>
                                 <th>Tarih</th>
                                 <th>Durum</th>
@@ -30,6 +31,7 @@
                                 <tr>
                                     <th scope="row">@count</th>
                                     <td>@item.NameSurname</td>
+                                    <td>@item.ProductName</td>
                                     <td>@item.CommentDetail</td>
                                     <td>@item.CreatedDate.ToShortDateString()</td>
                                     <td>@item.Status</td>
@@ -43,7 +45,7 @@
                             }
                         </tbody>
                     </table>
-                    <a href="/Admin/Comment/CreateComment/" class="btn btn-primary">Yeni Kategori Girişi</a>
+                    <a href="/Admin/Comment/CreateComment/" class="btn btn-primary">Yeni Yorum Girişi</a>
                 </div>
             </div>
         </div>

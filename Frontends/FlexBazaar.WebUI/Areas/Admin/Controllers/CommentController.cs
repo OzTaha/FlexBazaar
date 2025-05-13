@@ -1,4 +1,5 @@
-﻿using FlexBazaar.DtoLayer.CommentDtos;
+﻿using FlexBazaar.DtoLayer.CatalogDtos.ProductDtos;
+using FlexBazaar.DtoLayer.CommentDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -28,14 +29,60 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
 
             var client = _httpClientFactory.CreateClient();
 
+            // Yorumları listele
+
             var responseMessage = await client.GetAsync("http://localhost:7263/api/Comments");
-            if (responseMessage.IsSuccessStatusCode)
+
+            if (!responseMessage.IsSuccessStatusCode)
+
             {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultCommentDto>>(jsonData);
-                return View(values);
+
+                return View();
+
             }
-            return View();
+
+            var data = await responseMessage.Content.ReadAsStringAsync();
+
+            var comments = JsonConvert.DeserializeObject<List<ResultCommentDto>>(data);
+
+
+            // Ürünleri listele
+
+            var productResponse = await client.GetAsync("http://localhost:7017/api/Products");
+
+            if (!productResponse.IsSuccessStatusCode)
+
+            {
+
+                return View(comments);
+
+            }
+
+            var productData = await productResponse.Content.ReadAsStringAsync();
+
+            var products = JsonConvert.DeserializeObject<List<ResultProductDto>>(productData);
+
+
+            // Yorumlara uygun ürün isimlerini eşitle
+
+            foreach (var comment in comments)
+
+            {
+
+                var matchedProduct = products.FirstOrDefault(p => p.ProductId == comment.ProductId);
+
+                if (matchedProduct != null)
+
+                {
+
+                    comment.ProductName = matchedProduct.ProductName;
+
+                }
+
+            }
+
+
+            return View(comments);
         }    
 
         [Route("DeleteComment/{id}")]
@@ -69,6 +116,7 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
                 var values = JsonConvert.DeserializeObject<UpdateCommentDto>(jsonData);
                 return View(values);
             }
+
             return View();
         }
 

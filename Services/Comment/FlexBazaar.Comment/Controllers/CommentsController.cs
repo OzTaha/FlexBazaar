@@ -56,5 +56,12 @@ namespace FlexBazaar.Comment.Controllers
             _context.SaveChanges();
             return Ok("Yorum başarıyla güncellendi.");
         }
+
+        [HttpGet("CommentListByProductId")] 
+        public IActionResult CommentListByProductId(string id)
+        {
+            var value = _context.UserComments.Where(x => x.ProductId == id).ToList();
+            return Ok(value);
+        }
     }
 }
