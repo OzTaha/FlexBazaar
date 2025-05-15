@@ -12,6 +12,7 @@
     "FlexBazaar.Basket": {
       "commandName": "Project",
       "dotnetRunMessages": true,
+      // uygulama çalışsın ama browser açılmasın diye false yapıldı.
       "launchBrowser": false,
       "launchUrl": "swagger",
       // yeni sekmede açmasın diye http://localhost:5165'i silindi.
