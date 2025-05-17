@@ -11,7 +11,7 @@
 	<!-- Jquery -->
 	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
 	<!-- Main Style Css -->
-    <link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/style.css" />
 </head>
 <body class="form-v4">
 	<div class="page-content">
@@ -51,9 +51,10 @@
 					</div>
 				</div>
 				<div class="form-checkbox">
-					<label class="container"><p>I agree to the <a href="#" class="text">Terms and Conditions</a></p>
-					  	<input type="checkbox" name="checkbox">
-					  	<span class="checkmark"></span>
+					<label class="container">
+						<p>I agree to the <a href="#" class="text">Terms and Conditions</a></p>
+						<input type="checkbox" name="checkbox">
+						<span class="checkmark"></span>
 					</label>
 				</div>
 				<div class="form-row-last">
@@ -68,36 +69,36 @@
 	<script>
 		// just for the demos, avoids form submit
 		jQuery.validator.setDefaults({
-		  	debug: true,
-		  	success:  function(label){
-        		label.attr('id', 'valid');
-   		 	},
+			debug: true,
+			success: function (label) {
+				label.attr('id', 'valid');
+			},
 		});
-		$( "#myform" ).validate({
-		  	rules: {
-			    password: "required",
-		    	comfirm_password: {
-		      		equalTo: "#password"
-		    	}
-		  	},
-		  	messages: {
-		  		first_name: {
-		  			required: "Please enter a firstname"
-		  		},
-		  		last_name: {
-		  			required: "Please enter a lastname"
-		  		},
-		  		your_email: {
-		  			required: "Please provide an email"
-		  		},
-		  		password: {
-	  				required: "Please enter a password"
-		  		},
-		  		comfirm_password: {
-		  			required: "Please enter a password",
-		      		equalTo: "Wrong Password"
-		    	}
-		  	}
+		$("#myform").validate({
+			rules: {
+				password: "required",
+				comfirm_password: {
+					equalTo: "#password"
+				}
+			},
+			messages: {
+				first_name: {
+					required: "Please enter a firstname"
+				},
+				last_name: {
+					required: "Please enter a lastname"
+				},
+				your_email: {
+					required: "Please provide an email"
+				},
+				password: {
+					required: "Please enter a password"
+				},
+				comfirm_password: {
+					required: "Please enter a password",
+					equalTo: "Wrong Password"
+				}
+			}
 		});
 	</script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

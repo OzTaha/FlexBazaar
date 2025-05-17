@@ -37,8 +37,16 @@ namespace FlexBazaar.IdentityServer
         // SqlLite yerine SqlServer kullanmasını sağlıyoruz. 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            /*
+              kullanıcı adı karakter kısıtlaması problemine önlem için 
+             (options => {
+                 options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrsştuüvwxyzABCDEFGHIJKLMNOPQRSŞTUÜVWXYZ0123456789";
+                 }) 
+            */
+            services.AddIdentity<ApplicationUser, IdentityRole>(options => {
+                options.User.AllowedUserNameCharacters = "abcçdefgğhıijklmnoöpqrsştuüvwxyzABCDEFGĞHIİJKLMNOÖPQRSŞTUÜVWXYZ0123456789-._+";
+                }) 
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 

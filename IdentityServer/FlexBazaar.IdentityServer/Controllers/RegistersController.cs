@@ -10,7 +10,8 @@ using static IdentityServer4.IdentityServerConstants;
 
 namespace FlexBazaar.IdentityServer.Controllers
 {
-    [Authorize(LocalApi.PolicyName)]
+    [AllowAnonymous]
+    //[Authorize(LocalApi.PolicyName)]
     [Route("api/[controller]")]
     [ApiController]
     public class RegistersController : ControllerBase
@@ -38,9 +39,9 @@ namespace FlexBazaar.IdentityServer.Controllers
             } 
             else
             {
-                  return Ok("Bir hata oluştu tekrar deneyin.");
-                //var errors = string.Join(", ", result.Errors.Select(x => x.Description));
-                //return BadRequest($"Bir hata oluştu: {errors}");
+                return Ok("Bir hata oluştu tekrar deneyin.");
+               // var errors = string.Join(", ", result.Errors.Select(x => x.Description));
+               //return BadRequest($"Bir hata oluştu: {errors}");
             }
         }
     }
