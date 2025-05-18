@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Form-v4 by Colorlib</title>
+	<title>FlexBazaar Kayıt Sayfası</title>
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- Font-->
@@ -23,8 +23,9 @@
 			<div class="form-left">
 				<h2>FlexBazaar E-ticaret</h2>
 				<p class="text-1">Flexbazaar projemiz üzerinden e-ticaret işlemlerinizi gerçekleştirebilmek ve fırsatlardan haberdar olmak için 30 saniyede kaydınızı gerçekleştirin.</p>
+				<p class="text-2">Hesabınız varsa aşağıdaki butondan giriş sayfasına geçebilirsiniz.</p>
 				<div class="form-left-last">
-                    <a href="#" class="account">Giriş Yap</a>
+                    <a href="/Login/Index" class="account">Giriş Yap</a>
 				</div>
 			</div>
 			<form class="form-detail" method="post">
@@ -57,15 +58,15 @@
 						<input type="password" asp-for="ConfirmPassword" id="comfirm_password" class="input-text" required>
 					</div>
 				</div>
-				@* <div class="form-checkbox">
+				<div class="form-checkbox">
 					<label class="container"><p><a href="#" class="text">Şartları okudum</a> kabul ediyorum</p>
 					  	<input type="checkbox" name="checkbox">
 					  	<span class="checkmark"></span>
 					</label>
-				</div> *@
+				</div>
 				<div class="form-row-last">
-				@* 	<input type="submit" name="register" class="register" value="Kayıt ol"> *@
-					<button type="submit" name="register" class="register" value="Kayıt ol">Kayıt Ol</button>
+					<input type="submit" name="register" class="register" value="Kayıt ol">
+					@* <button type="submit" name="register" class="register" value="Kayıt ol">Kayıt Ol</button> *@
 				</div>
 			</form>
 		</div>

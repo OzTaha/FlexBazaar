@@ -1,22 +1,27 @@
+html, body {
+    height: 100%;
+}
+
 body {
 	margin:  0;
 }
 .page-content {
-	width: 100%;
-	margin:  0 auto;
-	background: #75e2e9;
-	display: flex;
-	display: -webkit-flex;
-	justify-content: center;
-	-o-justify-content: center;
-	-ms-justify-content: center;
-	-moz-justify-content: center;
-	-webkit-justify-content: center;
-	align-items: center;
-	-o-align-items: center;
-	-ms-align-items: center;
-	-moz-align-items: center;
-	-webkit-align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: #75e2e9;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -o-justify-content: center;
+    -ms-justify-content: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -o-align-items: center;
+    -ms-align-items: center;
+    -moz-align-items: center;
+    -webkit-align-items: center;
 }
 .form-v4-content  {
 	background: #fff;
@@ -39,7 +44,7 @@ body {
 }
 .form-v4-content h2 {
 	font-weight: 700;
-	font-size: 30px;
+	font-size: 28px;
 	padding: 6px 0 0;
 	margin-bottom: 34px;
 }
@@ -120,8 +125,9 @@ body {
 	font-weight: 600;
 	font-size: 15px;
 	color: #666;
-	display: block;
+	display: flex;
 	margin-bottom: 8px;
+	/*height: 40px;*/
 }
 .form-v4-content .form-detail .form-row label#valid {
     position: absolute;
@@ -182,7 +188,7 @@ body {
     font-weight: 900;
 }
 .form-v4-content .form-detail .input-text {
-	margin-bottom: 27px;
+	margin-bottom: 17px;
 }
 .form-v4-content .form-detail input {
 	width: 100%;
@@ -274,19 +280,23 @@ body {
 .form-v4-content .form-detail .register:hover {
 	background: #2f73a3;
 }
-.form-v4-content .form-detail .form-row-last input {
-	padding: 12.5px;
+.form-v4-content .form-detail .form-row-last input, button {
+	padding: 15px;
 }
 
 /* Responsive */
 @media screen and (max-width: 991px) {
+    .page-content {
+        height: auto;
+    }
+
 	.form-v4-content {
 		margin: 180px 20px;
-		flex-direction:  column;
-		-o-flex-direction:  column;
-		-ms-flex-direction:  column;
-		-moz-flex-direction:  column;
-		-webkit-flex-direction:  column;
+		flex-direction: column;
+		-o-flex-direction: column;
+		-ms-flex-direction: column;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
 	}
 	.form-v4-content .form-left {
 		width: auto;
