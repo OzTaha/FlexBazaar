@@ -1,6 +1,7 @@
 ﻿using FlexBazaar.DtoLayer.IdentityDtos.LoginDtos;
 using FlexBazaar.WebUI.Models;
 using FlexBazaar.WebUI.Services;
+using FlexBazaar.WebUI.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,12 @@ namespace FlexBazaar.WebUI.Controllers
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILoginService _loginService;
-        public LoginController(IHttpClientFactory httpClientFactory, ILoginService loginService)
+        private readonly IIdentityService _identityService;
+        public LoginController(IHttpClientFactory httpClientFactory, ILoginService loginService, IIdentityService identityService)
         {
             _httpClientFactory = httpClientFactory;
             _loginService = loginService;
+            _identityService = identityService;
         }
 
         [HttpGet]
@@ -67,6 +70,21 @@ namespace FlexBazaar.WebUI.Controllers
                 }              
             }
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SignUp(SignUpDto signUpDto)
+        {
+            signUpDto.Username = "selim01";
+            signUpDto.Password = "Asd321.";
+            await _identityService.SignIn(signUpDto);
+            return RedirectToAction("Index", "Test");
         }
     }
 }

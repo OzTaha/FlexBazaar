@@ -7,8 +7,7 @@ using FlexBazaar.Catalog.Entities;
 
 namespace FlexBazaar.Catalog.Controllers
 {
-    [AllowAnonymous]
-    //[Authorize]
+    [Authorize]
     // [Authorize] --> test amaçlı kuralları görmezden gelebilmesi için authorize yorum satırına alındı. Canlıya alınacağı zaman yorum satırıdan çıkar!!!
     [Route("api/[controller]")]
     [ApiController]
