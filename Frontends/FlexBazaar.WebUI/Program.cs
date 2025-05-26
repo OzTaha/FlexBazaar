@@ -12,7 +12,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
     opt.LoginPath = "/Login/Index";
     opt.LogoutPath = "/Login/Logout";
     opt.AccessDeniedPath = "/Pages/AccessDenied";
-    // https'e gerek olmadan çalýþmasý için
+    // https'e gerek olmadan çalýþmasý için. Canlýya alýrken düzeltilmeli
     opt.Cookie.HttpOnly = true;
     opt.Cookie.SameSite = SameSiteMode.Strict;
     opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;

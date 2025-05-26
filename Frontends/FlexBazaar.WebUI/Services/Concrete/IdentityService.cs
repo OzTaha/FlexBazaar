@@ -23,7 +23,7 @@ namespace FlexBazaar.WebUI.Services.Concrete
             _clientSettings = clientSettings.Value;
         }
 
-        public async Task<bool> SignIn(SignUpDto signUpDto)
+        public async Task<bool> SignIn(SignInDto signInDto)
         {
             /*
              new DiscoveryDocumentRequest
@@ -49,8 +49,8 @@ namespace FlexBazaar.WebUI.Services.Concrete
             {
                 ClientId = _clientSettings.FlexBazaarManagerClient.ClientId,
                 ClientSecret = _clientSettings.FlexBazaarManagerClient.ClientSecret,
-                UserName = signUpDto.Username,
-                Password = signUpDto.Password,
+                UserName = signInDto.Username,
+                Password = signInDto.Password,
                 Address = discoveryEndpoint.TokenEndpoint
             };
 

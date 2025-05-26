@@ -72,18 +72,18 @@ namespace FlexBazaar.WebUI.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult SignUp()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult SignIn()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public async Task<IActionResult> SignUp(SignUpDto signUpDto)
+        //[HttpPost]
+        public async Task<IActionResult> SignIn(SignInDto signInDto)
         {
-            signUpDto.Username = "selim01";
-            signUpDto.Password = "Asd321.";
-            await _identityService.SignIn(signUpDto);
+            signInDto.Username = "selim01";
+            signInDto.Password = "Asd321.";
+            await _identityService.SignIn(signInDto);
             return RedirectToAction("Index", "Test");
         }
     }
