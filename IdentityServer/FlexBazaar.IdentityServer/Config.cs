@@ -63,7 +63,7 @@ namespace FlexBazaar.IdentityServer
                 // kimlik işlemleri için kullanılacak property
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission" },
+                AllowedScopes = { "CatalogReadPermission","CatalogFullPermission" },
                 AllowAccessTokensViaBrowser = true
             },
 

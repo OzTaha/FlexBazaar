@@ -17,7 +17,6 @@ namespace FlexBazaar.WebUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-
             string token ="";
             using (var httpClient = new HttpClient())
             {
@@ -54,6 +53,6 @@ namespace FlexBazaar.WebUI.Controllers
                 return View(values);
             }
             return View();
-        }
+        }       
     }
 }
