@@ -3,7 +3,7 @@
     "SelfHost": {
       "commandName": "Project",
       // uygulama çalışsın ama browser açılmasın diye launchBrowser false yapıldı.
-      "launchBrowser": true,
+      "launchBrowser": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

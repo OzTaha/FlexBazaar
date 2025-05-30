@@ -4,18 +4,17 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:60511",
-      "sslPort": 44395
+      "applicationUrl": "http://localhost:50470",
+      "sslPort": 44334
     }
   },
   "profiles": {
-    "FlexBazaar.Comment": {
+    "FlexBazaar.Payment": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": false,
       "launchUrl": "swagger",
-      // canlıya alınacağı zaman https yap!!!
-      "applicationUrl": "http://localhost:7022",
+      "applicationUrl": "https://localhost:7023",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

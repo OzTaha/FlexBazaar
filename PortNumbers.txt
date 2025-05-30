@@ -5,3 +5,6 @@ Discount --> 7018
 Order    --> 7019
 Cargo	 --> 7020
 Basket   --> 7021
+Comment  --> 7022
+Payment  --> 7023
+Images   --> 7024

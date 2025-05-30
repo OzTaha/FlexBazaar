@@ -13,8 +13,8 @@ namespace FlexBazaar.IdentityServer
         // bu kısımda her mikroservise erişim için bir key tanımlanır
         public static IEnumerable<ApiResource> ApiResources => new ApiResource[]
        {
-           new ApiResource("ResourceCatalog"){ 
-               Scopes = { "CatalogFullPermission", "CatalogReadPermission"} 
+           new ApiResource("ResourceCatalog"){
+               Scopes = { "CatalogFullPermission", "CatalogReadPermission"}
            },
            new ApiResource("ResourceDiscount"){
                Scopes = { "DiscountFullPermission"}
@@ -25,10 +25,14 @@ namespace FlexBazaar.IdentityServer
            new ApiResource("ResourceCargo")
            {
                Scopes = { "CargoFullPermission"}
-           }, 
+           },
            new ApiResource("ResourceBasket")
            {
-               Scopes = { "BaskeFullPermission" }
+               Scopes = { "BasketFullPermission" }
+           },
+           new ApiResource("ResourceOcelot")
+           {
+               Scopes = { "OcelotFullPermission" }
            },
            new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
        };
@@ -50,6 +54,7 @@ namespace FlexBazaar.IdentityServer
             new ApiScope("OrderFullPermission", "Full authority for order operations"),
             new ApiScope("CargoFullPermission", "Full authority for cargo operations"),
             new ApiScope("BaskeFullPermission", "Full authority for basket operations"),
+            new ApiScope("OcelotFullPermission", "Full authority for ocelot operations"),
             new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
         };
         public static IEnumerable<Client> Clients => new Client[]
@@ -63,7 +68,7 @@ namespace FlexBazaar.IdentityServer
                 // kimlik işlemleri için kullanılacak property
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission","CatalogFullPermission" },
+                AllowedScopes = { "CatalogReadPermission","CatalogFullPermission","OcelotFullPermission" },
                 AllowAccessTokensViaBrowser = true
             },
 
@@ -75,7 +80,7 @@ namespace FlexBazaar.IdentityServer
                 // kullanıcının şifresine göre 
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "BaskeFullPermission" }
+                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "BaskeFullPermission", "OcelotFullPermission" }
             },
 
             //Admin
@@ -85,7 +90,7 @@ namespace FlexBazaar.IdentityServer
                 ClientName = "Flex Bazaar Admin User",
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission","BaskeFullPermission",
+                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission","BaskeFullPermission","OcelotFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
