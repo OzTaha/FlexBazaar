@@ -13,27 +13,16 @@ namespace FlexBazaar.IdentityServer
         // bu kısımda her mikroservise erişim için bir key tanımlanır
         public static IEnumerable<ApiResource> ApiResources => new ApiResource[]
        {
-           new ApiResource("ResourceCatalog"){
-               Scopes = { "CatalogFullPermission", "CatalogReadPermission"}
-           },
-           new ApiResource("ResourceDiscount"){
-               Scopes = { "DiscountFullPermission"}
-           },
-           new ApiResource("ResourceOrder"){
-               Scopes = { "OrderFullPermission"}
-           },
-           new ApiResource("ResourceCargo")
-           {
-               Scopes = { "CargoFullPermission"}
-           },
-           new ApiResource("ResourceBasket")
-           {
-               Scopes = { "BasketFullPermission" }
-           },
-           new ApiResource("ResourceOcelot")
-           {
-               Scopes = { "OcelotFullPermission" }
-           },
+           new ApiResource("ResourceCatalog"){Scopes = { "CatalogFullPermission", "CatalogReadPermission"}},
+           new ApiResource("ResourceDiscount"){Scopes = { "DiscountFullPermission"}},
+           new ApiResource("ResourceOrder"){Scopes = { "OrderFullPermission"}},
+           new ApiResource("ResourceCargo"){Scopes = { "CargoFullPermission"}},
+           new ApiResource("ResourceBasket"){Scopes = { "BasketFullPermission" }},
+            new ApiResource("ResourceComment"){Scopes = { "CommentFullPermission" }},
+           new ApiResource("ResourcePayment"){Scopes = { "PaymentFullPermission" }},
+           new ApiResource("ResourceImage"){Scopes = { "ImageFullPermission" }},
+           new ApiResource("ResourceOcelot"){Scopes = { "OcelotFullPermission" }},
+
            new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
        };
         // kimlik kaynaklarını tanımlayan özellik
@@ -54,6 +43,9 @@ namespace FlexBazaar.IdentityServer
             new ApiScope("OrderFullPermission", "Full authority for order operations"),
             new ApiScope("CargoFullPermission", "Full authority for cargo operations"),
             new ApiScope("BaskeFullPermission", "Full authority for basket operations"),
+            new ApiScope("CommentFullPermission", "Full authority for comment operations"),
+            new ApiScope("PaymentFullPermission", "Full authority for payment operations"),
+            new ApiScope("ImageFullPermission", "Full authority for image operations"),
             new ApiScope("OcelotFullPermission", "Full authority for ocelot operations"),
             new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
         };
@@ -68,7 +60,7 @@ namespace FlexBazaar.IdentityServer
                 // kimlik işlemleri için kullanılacak property
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission","CatalogFullPermission","OcelotFullPermission" },
+                AllowedScopes = { "CatalogReadPermission","CatalogFullPermission","OcelotFullPermission", "CommentFullPermission","ImageFullPermission" },
                 AllowAccessTokensViaBrowser = true
             },
 
@@ -80,7 +72,12 @@ namespace FlexBazaar.IdentityServer
                 // kullanıcının şifresine göre 
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "BaskeFullPermission", "OcelotFullPermission" }
+                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "BaskeFullPermission", "OcelotFullPermission", "CommentFullPermission", "PaymentFullPermission", "ImageFullPermission",
+                IdentityServerConstants.LocalApi.ScopeName,
+                IdentityServerConstants.StandardScopes.Email,
+                IdentityServerConstants.StandardScopes.OpenId,
+                IdentityServerConstants.StandardScopes.Profile
+                }
             },
 
             //Admin
@@ -90,7 +87,7 @@ namespace FlexBazaar.IdentityServer
                 ClientName = "Flex Bazaar Admin User",
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission","BaskeFullPermission","OcelotFullPermission",
+                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission","BaskeFullPermission","OcelotFullPermission", "CommentFullPermission", "PaymentFullPermission","ImageFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,

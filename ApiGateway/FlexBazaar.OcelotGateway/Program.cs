@@ -4,8 +4,8 @@ using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(opt =>
+builder.Services.AddAuthentication()
+    .AddJwtBearer("OcelotAuthenticationScheme", opt =>
     {
         opt.Authority = builder.Configuration["IdentityServerUrl"];
         // oluþturulan tokenlerle hangi sayfalara eriþileceðini belirler

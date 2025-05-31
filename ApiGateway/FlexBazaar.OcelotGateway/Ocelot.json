@@ -14,13 +14,13 @@
       // isteğin yapılacağı yer
       "UpstreamPathTemplate": "/services/catalog/{everything}",
       "UpstreamHttpMethod": [ "GET", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http"
-      // AuthenticationOptions identity taradında henüz güvenlik alınmadığından dolayı kaldırıldı. Ocelot ile dağıtım geçekleştirmek için AuthenticationOptions kaldırıldı. diğer servisler için de aynı işlem uygulandı. 
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-      //  // catalog servise yapılacak isteklerde kullanıcı için hangi araklıklara izin verileceği belirlenir
-      //  "AllowedScopes": [ "CatalogFullPermission" ]
-      //}
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        // catalog servise yapılacak isteklerde kullanıcı için hangi araklıklara izin verileceği belirlenir
+        "AllowedScopes": [ "CatalogFullPermission" ]
+        //}
+      }
     },
 
     // Dicsount Microservice
@@ -35,7 +35,11 @@
       ],
       "UpstreamPathTemplate": "/services/discount/{everything}",
       "UpstreamHttpMethod": [ "GET", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http"
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": [ "DiscountFullPermission" ]
+      }
     },
 
     // Order Microservice
@@ -50,7 +54,11 @@
       ],
       "UpstreamPathTemplate": "/services/order/{everything}",
       "UpstreamHttpMethod": [ "GET", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http"
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": [ "OrderFullPermission" ]
+      }
     },
 
     // Cargo Microservice
@@ -65,7 +73,11 @@
       ],
       "UpstreamPathTemplate": "/services/cargo/{everything}",
       "UpstreamHttpMethod": [ "GET", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http"
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": [ "CargoFullPermission" ]
+      }
     },
 
     // Basket Microservice
@@ -80,7 +92,11 @@
       ],
       "UpstreamPathTemplate": "/services/basket/{everything}",
       "UpstreamHttpMethod": [ "GET", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http"
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": [ "BasketFullPermission" ]
+      }
     },
 
     // Comment Microservice
@@ -95,7 +111,11 @@
       ],
       "UpstreamPathTemplate": "/services/comment/{everything}",
       "UpstreamHttpMethod": [ "GET", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http"
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": [ "CommentFullPermission" ]
+      }
     },
 
     // Payment Microservice
@@ -110,9 +130,12 @@
       ],
       "UpstreamPathTemplate": "/services/payment/{everything}",
       "UpstreamHttpMethod": [ "GET", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http"
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": [ "PaymentFullPermission" ]
+      }
     },
-
 
     // Images Microservice
     {
@@ -126,10 +149,12 @@
       ],
       "UpstreamPathTemplate": "/services/images/{everything}",
       "UpstreamHttpMethod": [ "GET", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http"
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": [ "ImageFullPermission" ]
+      }
     }
-
-      // diğer servisler buradan itibaren eklenecek
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5000"
