@@ -1,4 +1,4 @@
-using FlexBazaar.WebUI.Services;
+using FlexBazaar.WebUI.Handlers;
 using FlexBazaar.WebUI.Services.Concrete;
 using FlexBazaar.WebUI.Services.Interfaces;
 using FlexBazaar.WebUI.Settings;
@@ -39,6 +39,14 @@ builder.Services.AddControllersWithViews();
 // registration iþlemleri
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
+
+builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
+
+var values = builder.Configuration.GetSection("serviceApiSettings").Get<ServiceApiSettings>();
+builder.Services.AddHttpClient<IUserService, UserService>(opt=>
+{
+    opt.BaseAddress = new Uri(values.IdentityServerUrl);
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 var app = builder.Build();
 

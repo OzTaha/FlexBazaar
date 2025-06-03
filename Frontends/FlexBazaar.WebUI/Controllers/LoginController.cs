@@ -1,6 +1,5 @@
 ﻿using FlexBazaar.DtoLayer.IdentityDtos.LoginDtos;
 using FlexBazaar.WebUI.Models;
-using FlexBazaar.WebUI.Services;
 using FlexBazaar.WebUI.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

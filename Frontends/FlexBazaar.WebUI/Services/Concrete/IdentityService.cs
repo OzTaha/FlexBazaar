@@ -25,6 +25,61 @@ namespace FlexBazaar.WebUI.Services.Concrete
             _serviceApiSettings = serviceApiSettings.Value;
         }
 
+        public async Task<bool> GetRefreshToken()
+        {
+            var discoveryEndpoint = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
+            {
+                Address = _serviceApiSettings.IdentityServerUrl,
+                Policy = new DiscoveryPolicy
+                {
+                    RequireHttps = false,
+                }
+            });            
+
+            var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
+
+            RefreshTokenRequest refreshTokenRequest = new()
+            {
+                ClientId = _clientSettings.FlexBazaarManagerClient.ClientId,
+                ClientSecret = _clientSettings.FlexBazaarManagerClient.ClientSecret,
+                RefreshToken = refreshToken,
+                Address = discoveryEndpoint.TokenEndpoint,
+            };
+
+            var token = await _httpClient.RequestRefreshTokenAsync(refreshTokenRequest);
+          
+            var authenticationToken = new List<AuthenticationToken>()          
+            {
+                new AuthenticationToken
+                {
+                    // AccessToken kısa süreli(1 saat gibi) işlemler için
+                    Name = OpenIdConnectParameterNames.AccessToken,
+                    Value = token.AccessToken
+                },
+                new AuthenticationToken
+                {
+                    // RefreshToken uzun süreli(30 gün gibi) işlemler için
+                    Name = OpenIdConnectParameterNames.RefreshToken,
+                    Value = token.RefreshToken
+                },
+                new AuthenticationToken
+                {
+                    // Token'ın son kullanma tarihi
+                    Name = OpenIdConnectParameterNames.ExpiresIn,
+                    Value = DateTime.Now.AddSeconds(token.ExpiresIn).ToString()
+                }
+            };
+
+            var result = await _httpContextAccessor.HttpContext.AuthenticateAsync();
+
+            var properties = result.Properties;
+            properties.StoreTokens(authenticationToken);
+
+            await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, result.Principal, properties);
+
+            return true;
+        }
+
         public async Task<bool> SignIn(SignInDto signInDto)
         {
             /*

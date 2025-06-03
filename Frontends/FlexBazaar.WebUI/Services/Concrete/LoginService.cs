@@ -1,6 +1,7 @@
-﻿using System.Security.Claims;
+﻿using FlexBazaar.WebUI.Services.Interfaces;
+using System.Security.Claims;
 
-namespace FlexBazaar.WebUI.Services
+namespace FlexBazaar.WebUI.Services.Concrete
 {
     public class LoginService : ILoginService
     {
@@ -9,6 +10,6 @@ namespace FlexBazaar.WebUI.Services
         {
             _contextAccessor = contextAccessor;
         }
-        public string GetUserId => _contextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value ;
+        public string GetUserId => _contextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
     }
 }
