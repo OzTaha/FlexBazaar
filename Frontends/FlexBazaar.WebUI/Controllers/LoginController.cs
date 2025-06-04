@@ -42,7 +42,7 @@ namespace FlexBazaar.WebUI.Controllers
             signInDto.Username = "selim01";
             signInDto.Password = "Asd321.";
             await _identityService.SignIn(signInDto);
-            return RedirectToAction("Index", "Test");
+            return RedirectToAction("Index", "User");
         }
     }
 }

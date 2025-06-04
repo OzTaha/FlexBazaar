@@ -14,7 +14,8 @@ namespace FlexBazaar.WebUI.Services.Concrete
 
         public async Task<UserDetailViewModel> GetUserInfo()
         {
-            return await _httpClient.GetFromJsonAsync<UserDetailViewModel>("/api/user/getuserinfo");
+            // kullanıcının bilgilerini getirecek olan metod (getuser)
+            return await _httpClient.GetFromJsonAsync<UserDetailViewModel>("/api/users/getuser");
         }
     }
 }

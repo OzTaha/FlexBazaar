@@ -31,7 +31,7 @@ namespace FlexBazaar.IdentityServer.Controllers
                 UserName = userRegisterDto.Username,
                 Email = userRegisterDto.Email,
                 Name = userRegisterDto.Name,
-                SurName = userRegisterDto.Surname
+                Surname = userRegisterDto.Surname
             };
             var result = await _userManager.CreateAsync(values, userRegisterDto.Password);
             if (result.Succeeded) {
