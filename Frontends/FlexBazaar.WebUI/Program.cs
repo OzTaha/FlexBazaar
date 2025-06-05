@@ -1,4 +1,5 @@
 using FlexBazaar.WebUI.Handlers;
+using FlexBazaar.WebUI.Services.CatalogServices.CategoryServices;
 using FlexBazaar.WebUI.Services.Concrete;
 using FlexBazaar.WebUI.Services.Interfaces;
 using FlexBazaar.WebUI.Settings;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>
 {
     opt.LoginPath = "/Login/Index";
@@ -18,6 +20,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
     opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
     opt.Cookie.Name = "FlexBazaarJwt";
 });
+//
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
 {
@@ -41,12 +44,21 @@ builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("Cli
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
+builder.Services.AddScoped<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
 
 var values = builder.Configuration.GetSection("serviceApiSettings").Get<ServiceApiSettings>();
 builder.Services.AddHttpClient<IUserService, UserService>(opt=>
 {
     opt.BaseAddress = new Uri(values.IdentityServerUrl);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+
+builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
 var app = builder.Build();
 

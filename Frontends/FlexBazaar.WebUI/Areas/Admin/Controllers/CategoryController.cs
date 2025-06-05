@@ -56,9 +56,7 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         [Route("CreateCategory")]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
         {
-            var client = _httpClientFactory.CreateClient();
-          
-
+            var client = _httpClientFactory.CreateClient();          
             // metin formatındaki değeri alıp json formatına çeviriyor (serialize)
             // gönderilen createCategoryDto parametresi ilk önce json formatına çevriliyor
             var jsonData = JsonConvert.SerializeObject(createCategoryDto);
