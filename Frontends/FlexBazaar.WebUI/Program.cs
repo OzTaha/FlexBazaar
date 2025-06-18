@@ -31,6 +31,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     opt.SlidingExpiration = true;
 });
 
+builder.Services.AddAccessTokenManagement();
+
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<ILoginService, LoginService>();
@@ -57,7 +59,7 @@ builder.Services.AddHttpClient<IUserService, UserService>(opt=>
 
 builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
 {
-    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
 var app = builder.Build();

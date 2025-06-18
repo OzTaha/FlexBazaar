@@ -1,4 +1,5 @@
 ﻿using FlexBazaar.DtoLayer.CatalogDtos.CategoryDtos;
+using FlexBazaar.WebUI.Services.CatalogServices.CategoryServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -8,36 +9,34 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     // AllowAnonymous] ile test etmek amaçlı kuralları görmezden gelmesi sağlandı.
-    [AllowAnonymous]
+    // [AllowAnonymous]
     [Route("Admin/Category")]
     public class CategoryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly ICategoryService _categoryService;
 
-        public CategoryController(IHttpClientFactory httpClientFactory)
+        public CategoryController(IHttpClientFactory httpClientFactory, ICategoryService categoryService)
         {
             _httpClientFactory = httpClientFactory;
-        }      
+            _categoryService = categoryService;
+        }
 
-        [Route("Index")]
-        public async Task<IActionResult> Index()
+        void CategoryViewbagList()
         {
             ViewBag.v1 = "Anasaya";
             ViewBag.v2 = "Kategoriler";
             ViewBag.v3 = "Kategori Listesi";
             ViewBag.v0 = "Kategori İşlemleri";
+        }
 
-            var client = _httpClientFactory.CreateClient();
+        [Route("Index")]
+        public async Task<IActionResult> Index()
+        {
+            CategoryViewbagList();
 
-            var responseMessage = await client.GetAsync("http://localhost:7017/api/Categories");
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                // gelen veriyi string formatta okuyacak
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
-                return View(values);
-            }
-            return View();
+            var values = await _categoryService.GetAllCategoryAsync();
+            return View(values);
         }
 
 
@@ -45,10 +44,7 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         [Route("CreateCategory")]
         public IActionResult CreateCategory()
         {
-            ViewBag.v1 = "Anasaya";
-            ViewBag.v2 = "Kategoriler";
-            ViewBag.v3 = "Yeni Kategori Girişi";
-            ViewBag.v0 = "Kategori İşlemleri";
+            CategoryViewbagList();
             return View();
         }
 
@@ -56,54 +52,26 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         [Route("CreateCategory")]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
         {
-            var client = _httpClientFactory.CreateClient();          
-            // metin formatındaki değeri alıp json formatına çeviriyor (serialize)
-            // gönderilen createCategoryDto parametresi ilk önce json formatına çevriliyor
-            var jsonData = JsonConvert.SerializeObject(createCategoryDto);
-            // json formatındaki veriyi stringContent'e çeviriyor. ve hangi türde olduğu belirtiliyor
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            // stringContent'i post ediliyor
-            var responseMessage = await client.PostAsync("http://localhost:7017/api/Categories", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                // başarılı bir şekilde post edildiyse
-                return RedirectToAction("Index", "Category", new {area="Admin"});
-            }
-            return View();
+            await _categoryService.CreateCategoryAsync(createCategoryDto);
+
+            // başarılı bir şekilde post edildiyse
+            return RedirectToAction("Index", "Category", new { area = "Admin" });
         }
 
         [Route("DeleteCategory/{id}")]
-        public async Task<IActionResult> DeleteCategory(string id) {
-            // canlıya alınacağı zaman yorum satırından çıkar.
-           var client = _httpClientFactory.CreateClient();
-          
-            var responseMessage = await client.DeleteAsync("http://localhost:7017/api/Categories?id=" + id);
-            if(responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "Category", new { area = "Admin" });
-            }
-            return View();
+        public async Task<IActionResult> DeleteCategory(string id)
+        {
+            await _categoryService.DeleteCategoryAsync(id);
+            return RedirectToAction("Index", "Category", new { area = "Admin" });
         }
 
         [Route("UpdateCategory/{id}")]
         [HttpGet]
         public async Task<IActionResult> UpdateCategory(string id)
         {
-
-            ViewBag.v1 = "Anasaya";
-            ViewBag.v2 = "Kategoriler";
-            ViewBag.v3 = "Kategori Güncelleme Sayfası";
-            ViewBag.v0 = "Kategori İşlemleri";
-      
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:7017/api/Categories/" + id);
-            if(responseMessage.IsSuccessStatusCode)
-            {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateCategoryDto>(jsonData);
-                return View(values);
-            }
-            return View();
+            CategoryViewbagList();
+            var values = await _categoryService.GetByIdCategoryAsync(id);
+            return View(values);
         }
 
         [Route("UpdateCategory/{id}")]
@@ -111,17 +79,9 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
 
-            var client = _httpClientFactory.CreateClient();
-            // metin formatındaki değeri alıp json formatına çeviriyor (serialize)
-            var jsonData = JsonConvert.SerializeObject(updateCategoryDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("http://localhost:7017/api/Categories/", stringContent );
-            if (responseMessage.IsSuccessStatusCode)
-            {
+            await _categoryService.UpdateCategoryAsync(updateCategoryDto);
 
-                return RedirectToAction("Index", "Category", new { area = "Admin" });
-            }
-            return View();
+            return RedirectToAction("Index", "Category", new { area = "Admin" });
         }
     }
 }

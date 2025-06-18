@@ -25,16 +25,23 @@ namespace FlexBazaar.WebUI.Services.CatalogServices.CategoryServices
         // Tüm kategorileri getir
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
         {
+
+            // 1. yöntem
             var responseMessage = await _httpClient.GetAsync("categories");
             var values = await responseMessage.Content.ReadFromJsonAsync<List<ResultCategoryDto>>();
+
+            // 2. yöntem
+            //var responseMessage = await _httpClient.GetAsync("categories");
+            //var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            //var values = await responseMessage.Content.ReadFromJsonAsync<List<ResultCategoryDto>>();
             return values;
         }
 
         // ID'ye göre kategori getir
-        public async Task<GetByIdCategoryDto> GetByIdCategoryAsync(string id)
+        public async Task<UpdateCategoryDto> GetByIdCategoryAsync(string id)
         {
             var responseMessage = await _httpClient.GetAsync("categories/" +id);
-            var values = await responseMessage.Content.ReadFromJsonAsync<GetByIdCategoryDto>();
+            var values = await responseMessage.Content.ReadFromJsonAsync<UpdateCategoryDto>();
             return values;
         }
 
