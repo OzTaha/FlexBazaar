@@ -53,8 +53,6 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
         {
             await _categoryService.CreateCategoryAsync(createCategoryDto);
-
-            // başarılı bir şekilde post edildiyse
             return RedirectToAction("Index", "Category", new { area = "Admin" });
         }
 
@@ -78,9 +76,7 @@ namespace FlexBazaar.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
-
             await _categoryService.UpdateCategoryAsync(updateCategoryDto);
-
             return RedirectToAction("Index", "Category", new { area = "Admin" });
         }
     }

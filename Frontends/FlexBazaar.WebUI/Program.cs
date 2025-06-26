@@ -1,5 +1,7 @@
 using FlexBazaar.WebUI.Handlers;
 using FlexBazaar.WebUI.Services.CatalogServices.CategoryServices;
+using FlexBazaar.WebUI.Services.CatalogServices.ProductServices;
+using FlexBazaar.WebUI.Services.CatalogServices.SpecialOfferServices;
 using FlexBazaar.WebUI.Services.Concrete;
 using FlexBazaar.WebUI.Services.Interfaces;
 using FlexBazaar.WebUI.Settings;
@@ -58,6 +60,16 @@ builder.Services.AddHttpClient<IUserService, UserService>(opt=>
 
 
 builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IProductService, ProductService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<ISpecialOfferService, SpecialOfferService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
