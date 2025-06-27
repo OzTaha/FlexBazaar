@@ -1,5 +1,9 @@
 using FlexBazaar.WebUI.Handlers;
+using FlexBazaar.WebUI.Services.CatalogServices.BrandServices;
 using FlexBazaar.WebUI.Services.CatalogServices.CategoryServices;
+using FlexBazaar.WebUI.Services.CatalogServices.FeatureServices;
+using FlexBazaar.WebUI.Services.CatalogServices.FeatureSliderServices;
+using FlexBazaar.WebUI.Services.CatalogServices.OfferDiscountServices;
 using FlexBazaar.WebUI.Services.CatalogServices.ProductServices;
 using FlexBazaar.WebUI.Services.CatalogServices.SpecialOfferServices;
 using FlexBazaar.WebUI.Services.Concrete;
@@ -53,23 +57,50 @@ builder.Services.AddScoped<ClientCredentialTokenHandler>();
 builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
 
 var values = builder.Configuration.GetSection("serviceApiSettings").Get<ServiceApiSettings>();
+
 builder.Services.AddHttpClient<IUserService, UserService>(opt=>
 {
     opt.BaseAddress = new Uri(values.IdentityServerUrl);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
-
+// Category
 builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
+// Product
 builder.Services.AddHttpClient<IProductService, ProductService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
+// Special Offer
 builder.Services.AddHttpClient<ISpecialOfferService, SpecialOfferService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+// Feature Slider
+builder.Services.AddHttpClient<IFeatureSliderService, FeatureSliderService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+// Feature 
+builder.Services.AddHttpClient<IFeatureService, FeatureService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+// Offer Discount
+builder.Services.AddHttpClient<IOfferDiscountService, OfferDiscountService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+// Brand
+builder.Services.AddHttpClient<IBrandService, BrandService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
