@@ -1,4 +1,5 @@
 ﻿using FlexBazaar.DtoLayer.CatalogDtos.SpecialOfferDtos;
+using FlexBazaar.WebUI.Services.CatalogServices.SpecialOfferServices;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -6,26 +7,17 @@ namespace FlexBazaar.WebUI.ViewComponents.DefaultViewComponents
 {
     public class _SpecialOfferComponentPartial : ViewComponent
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly ISpecialOfferService _specialOfferService;
 
-        public _SpecialOfferComponentPartial(IHttpClientFactory httpClientFactory)
+        public _SpecialOfferComponentPartial(ISpecialOfferService specialOfferService)
         {
-            _httpClientFactory = httpClientFactory;
+            _specialOfferService = specialOfferService;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var client = _httpClientFactory.CreateClient();
-
-            var responseMessage = await client.GetAsync("http://localhost:7017/api/SpecialOffers");
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                // gelen veriyi string formatta okuyacak
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultSpecialOfferDto>>(jsonData);
-                return View(values);
-            }
-            return View();
+            var values = await _specialOfferService.GetAllSpecialOfferAsync();
+            return View(values);
         }
     }
 }

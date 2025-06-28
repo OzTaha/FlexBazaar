@@ -1,0 +1,15 @@
+﻿
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="#">@ViewBag.breadcrumb1</a>
+                @if (!string.IsNullOrEmpty(ViewBag.breadcrumb2))
+                {
+                    <a class="breadcrumb-item text-dark" href="#">@ViewBag.breadcrumb2</a>
+                }
+                <span class="breadcrumb-item active">@ViewBag.breadcrumb3</span>
+            </nav>
+        </div>
+    </div>
+</div>

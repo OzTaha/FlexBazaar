@@ -20,8 +20,10 @@
     <!-- Navbar End -->
 
     <!-- Breadcrumb Start -->
+    @await Component.InvokeAsync("_BreadcrumbUILayoutComponentPartial")
+     <!-- Breadcrumb End -->
+
     @RenderBody()
-    <!-- Breadcrumb End -->
 
     <!-- Footer Start -->
     @await Component.InvokeAsync("_FooterUILayoutComponentPartial")

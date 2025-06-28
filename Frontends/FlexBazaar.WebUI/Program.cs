@@ -1,4 +1,5 @@
 using FlexBazaar.WebUI.Handlers;
+using FlexBazaar.WebUI.Services.CatalogServices.AboutServices;
 using FlexBazaar.WebUI.Services.CatalogServices.BrandServices;
 using FlexBazaar.WebUI.Services.CatalogServices.CategoryServices;
 using FlexBazaar.WebUI.Services.CatalogServices.FeatureServices;
@@ -101,6 +102,12 @@ builder.Services.AddHttpClient<IOfferDiscountService, OfferDiscountService>(opt 
 
 // Brand
 builder.Services.AddHttpClient<IBrandService, BrandService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+// About
+builder.Services.AddHttpClient<IAboutService, AboutService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();

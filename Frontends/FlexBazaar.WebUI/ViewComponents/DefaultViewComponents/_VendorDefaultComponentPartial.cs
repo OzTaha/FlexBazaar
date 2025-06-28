@@ -1,4 +1,5 @@
 ﻿using FlexBazaar.DtoLayer.CatalogDtos.BrandDtos;
+using FlexBazaar.WebUI.Services.CatalogServices.BrandServices;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -6,24 +7,25 @@ namespace FlexBazaar.WebUI.ViewComponents.DefaultViewComponents
 {
     public class _VendorDefaultComponentPartial : ViewComponent
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+       private readonly IBrandService _brandService;
 
-        public _VendorDefaultComponentPartial(IHttpClientFactory httpClientFactory)
+        public _VendorDefaultComponentPartial(IBrandService brandService)
         {
-            _httpClientFactory = httpClientFactory;
+            _brandService = brandService;
         }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var client = _httpClientFactory.CreateClient();
-
-            var responseMessage = await client.GetAsync("http://localhost:7017/api/Brands");
-            if (responseMessage.IsSuccessStatusCode)
+            var values = await _brandService.GetAllBrandAsync();
+            if (values != null && values.Count > 0)
             {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultBrandDto>>(jsonData);
                 return View(values);
             }
-            return View();
+            else
+            {
+                // Eğer değerler boşsa, boş bir liste döndür
+                return View(new List<ResultBrandDto>());
+            }
         }
     }
 }

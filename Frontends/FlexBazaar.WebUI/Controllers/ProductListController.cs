@@ -15,6 +15,9 @@ namespace FlexBazaar.WebUI.Controllers
         }
         public IActionResult Index(string id)
         {
+            ViewBag.breadcrumb1 = "Ana sayfa";
+            ViewBag.breadcrumb2 = "Ürünler";
+            ViewBag.breadcrumb3 = "Ürün Listesi";
             ViewBag.i = id;
             return View();
         }
