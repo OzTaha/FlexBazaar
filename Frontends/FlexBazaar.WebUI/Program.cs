@@ -5,6 +5,7 @@ using FlexBazaar.WebUI.Services.CatalogServices.CategoryServices;
 using FlexBazaar.WebUI.Services.CatalogServices.FeatureServices;
 using FlexBazaar.WebUI.Services.CatalogServices.FeatureSliderServices;
 using FlexBazaar.WebUI.Services.CatalogServices.OfferDiscountServices;
+using FlexBazaar.WebUI.Services.CatalogServices.ProductImageServices;
 using FlexBazaar.WebUI.Services.CatalogServices.ProductServices;
 using FlexBazaar.WebUI.Services.CatalogServices.SpecialOfferServices;
 using FlexBazaar.WebUI.Services.Concrete;
@@ -108,6 +109,12 @@ builder.Services.AddHttpClient<IBrandService, BrandService>(opt =>
 
 // About
 builder.Services.AddHttpClient<IAboutService, AboutService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+// Product Image
+builder.Services.AddHttpClient<IProductImageService, ProductImageService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();

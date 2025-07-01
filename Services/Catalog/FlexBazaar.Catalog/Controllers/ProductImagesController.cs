@@ -25,7 +25,7 @@ namespace FlexBazaar.Catalog.Controllers
             return Ok(values);
         }
 
-        [HttpGet("ProductImagesByProductId")]
+        [HttpGet("ProductImagesByProductId/{id}")]
         public async Task<IActionResult> ProductImagesByProductId(string id)
         {
             var values = await _productImageService.GetByProductIdProductImageAsync(id);
