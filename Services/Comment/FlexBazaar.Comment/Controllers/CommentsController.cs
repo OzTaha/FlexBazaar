@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FlexBazaar.Comment.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    [AllowAnonymous]
     public class CommentsController : ControllerBase
     {
         private readonly CommentContext _context;

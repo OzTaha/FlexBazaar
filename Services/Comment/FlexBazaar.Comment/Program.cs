@@ -1,6 +1,16 @@
 using FlexBazaar.Comment.Context;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.Authority = builder.Configuration["IdentityServerUrl"];
+    // oluþturulan tokenlerle hangi sayfalara eriþileceðini belirler
+    opt.Audience = "ResourceComment";
+    // http kullanmak için. fakat canlýya alacaðýn zaman yorum satýrýna al. 
+    opt.RequireHttpsMetadata = false;
+});
 
 // Add services to the container.
 builder.Services.AddDbContext<CommentContext>();
@@ -19,6 +29,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
