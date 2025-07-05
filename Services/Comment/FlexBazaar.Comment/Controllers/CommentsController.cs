@@ -57,7 +57,7 @@ namespace FlexBazaar.Comment.Controllers
             return Ok("Yorum başarıyla güncellendi.");
         }
 
-        [HttpGet("CommentListByProductId")] 
+        [HttpGet("CommentListByProductId/{id}")] 
         public IActionResult CommentListByProductId(string id)
         {
             var value = _context.UserComments.Where(x => x.ProductId == id).ToList();

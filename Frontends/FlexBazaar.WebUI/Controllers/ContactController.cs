@@ -1,4 +1,5 @@
 ﻿using FlexBazaar.DtoLayer.CatalogDtos.ContactDtos;
+using FlexBazaar.WebUI.Services.CatalogServices.ContactServices;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
@@ -7,16 +8,19 @@ namespace FlexBazaar.WebUI.Controllers
 {
     public class ContactController : Controller
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IContactService _contactService;
 
-        public ContactController(IHttpClientFactory httpClientFactory)
+        public ContactController(IContactService contactService)
         {
-            _httpClientFactory = httpClientFactory;
+            _contactService = contactService;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.breadcrumb1 = "Ana sayfa";
+            ViewBag.breadcrumb2 = "İletişim";
+            ViewBag.breadcrumb3 = "Mesaj Gönder";
             return View();
         }
 
@@ -25,17 +29,8 @@ namespace FlexBazaar.WebUI.Controllers
         {
             createContactDto.IsRead = false;
             createContactDto.SendDate = DateTime.Now;
-
-            var client = _httpClientFactory.CreateClient();
-
-            var jsonData = JsonConvert.SerializeObject(createContactDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("http://localhost:7017/api/Contacts", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "Default");
-            }
-            return View();
+            await _contactService.CreateContactAsync(createContactDto);
+            return RedirectToAction("Index", "Default");                      
         }
     }
 }

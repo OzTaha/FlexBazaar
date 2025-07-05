@@ -2,6 +2,7 @@ using FlexBazaar.WebUI.Handlers;
 using FlexBazaar.WebUI.Services.CatalogServices.AboutServices;
 using FlexBazaar.WebUI.Services.CatalogServices.BrandServices;
 using FlexBazaar.WebUI.Services.CatalogServices.CategoryServices;
+using FlexBazaar.WebUI.Services.CatalogServices.ContactServices;
 using FlexBazaar.WebUI.Services.CatalogServices.FeatureServices;
 using FlexBazaar.WebUI.Services.CatalogServices.FeatureSliderServices;
 using FlexBazaar.WebUI.Services.CatalogServices.OfferDiscountServices;
@@ -9,6 +10,7 @@ using FlexBazaar.WebUI.Services.CatalogServices.ProductDetailServices;
 using FlexBazaar.WebUI.Services.CatalogServices.ProductImageServices;
 using FlexBazaar.WebUI.Services.CatalogServices.ProductServices;
 using FlexBazaar.WebUI.Services.CatalogServices.SpecialOfferServices;
+using FlexBazaar.WebUI.Services.CommentServices;
 using FlexBazaar.WebUI.Services.Concrete;
 using FlexBazaar.WebUI.Services.Interfaces;
 using FlexBazaar.WebUI.Settings;
@@ -122,6 +124,18 @@ builder.Services.AddHttpClient<IProductImageService, ProductImageService>(opt =>
 
 // Product Detail
 builder.Services.AddHttpClient<IProductDetailService, ProductDetailService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+// Comment
+builder.Services.AddHttpClient<ICommentService, CommentService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Comment.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+// Contact
+builder.Services.AddHttpClient<IContactService, ContactService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
