@@ -42,7 +42,7 @@ namespace FlexBazaar.IdentityServer
             new ApiScope("DiscountFullPermission", "Full authority for discount operations"),
             new ApiScope("OrderFullPermission", "Full authority for order operations"),
             new ApiScope("CargoFullPermission", "Full authority for cargo operations"),
-            new ApiScope("BaskeFullPermission", "Full authority for basket operations"),
+            new ApiScope("BasketFullPermission", "Full authority for basket operations"),
             new ApiScope("CommentFullPermission", "Full authority for comment operations"),
             new ApiScope("PaymentFullPermission", "Full authority for payment operations"),
             new ApiScope("ImageFullPermission", "Full authority for image operations"),
@@ -72,7 +72,7 @@ namespace FlexBazaar.IdentityServer
                 // kullanıcının şifresine göre 
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("flexbazaarsecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "BaskeFullPermission", "OcelotFullPermission", "CommentFullPermission", "PaymentFullPermission", "ImageFullPermission",
+                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "BasketFullPermission", "OcelotFullPermission", "CommentFullPermission", "PaymentFullPermission", "ImageFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
