@@ -58,7 +58,7 @@ namespace FlexBazaar.WebUI.Services.BasketServices
 
             if (result)
             {
-                // gerçekten bir öğe silindiyse kaydeecek
+                // gerçekten bir öğe silindiyse kaydedecek
                 await SaveBasket(values);
             }
 
