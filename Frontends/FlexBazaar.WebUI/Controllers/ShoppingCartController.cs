@@ -15,10 +15,12 @@ namespace FlexBazaar.WebUI.Controllers
             _basketService = basketService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var valeus = await _basketService.GetBasket();
-            return View(valeus);
+            ViewBag.breadcrumb1 = "Ana sayfa";
+            ViewBag.breadcrumb2 = "Ürünler";
+            ViewBag.breadcrumb3 = "Sepetim";
+            return View();
         }
 
         public async Task<IActionResult> AddBasketItem(string productId)
