@@ -22,10 +22,9 @@ namespace FlexBazaar.WebUI.Controllers
             ViewBag.breadcrumb3 = "Sepetim";
             return View();
         }
-
-        public async Task<IActionResult> AddBasketItem(string productId)
+        public async Task<IActionResult> AddBasketItem(string id)
         {
-            var values = await _productService.GetByIdProductAsync(productId);
+            var values = await _productService.GetByIdProductAsync(id);
             var items = new BasketItemDto
             {
                 ProductId = values.ProductId,

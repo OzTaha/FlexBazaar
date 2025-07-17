@@ -14,7 +14,7 @@ namespace FlexBazaar.WebUI.Services.BasketServices
         public async Task AddBasketItem(BasketItemDto basketItemDto)
         {
             var values = await GetBasket();
-            if (values == null)
+            if (values != null)
             {
                 if (!values.BasketItems.Any(x => x.ProductId == basketItemDto.ProductId))
                 {
