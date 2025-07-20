@@ -11,22 +11,44 @@ namespace FlexBazaar.WebUI.Services.BasketServices
             _httpClient = httpClient;
         }
 
+        //public async Task AddBasketItem(BasketItemDto basketItemDto)
+        //{
+        //    var values = await GetBasket();
+        //    if (values != null)
+        //    {
+        //        if (!values.BasketItems.Any(x => x.ProductId == basketItemDto.ProductId))
+        //        {
+        //            values.BasketItems.Add(basketItemDto);
+        //        }
+        //        else
+        //        {
+        //            values = new BasketTotalDto();
+        //            values.BasketItems.Add(basketItemDto);
+        //        }
+        //    }
+        //    await SaveBasket(values);
+        //}
+
         public async Task AddBasketItem(BasketItemDto basketItemDto)
         {
-            var values = await GetBasket();
-            if (values != null)
+            var basket = await GetBasket() ?? new BasketTotalDto();
+
+            // Aynı üründen var mı bak
+            var existingItem = basket.BasketItems
+                                     .FirstOrDefault(x => x.ProductId == basketItemDto.ProductId);
+
+            if (existingItem == null)
             {
-                if (!values.BasketItems.Any(x => x.ProductId == basketItemDto.ProductId))
-                {
-                    values.BasketItems.Add(basketItemDto);
-                }
-                else
-                {
-                    values = new BasketTotalDto();
-                    values.BasketItems.Add(basketItemDto);
-                }
+                // Yoksa yeni ekle
+                basket.BasketItems.Add(basketItemDto);
             }
-            await SaveBasket(values);
+            else
+            {
+                // Varsa sadece miktarı artır
+                existingItem.Quantity += basketItemDto.Quantity;
+            }
+
+            await SaveBasket(basket);
         }
         public Task DeleteBasket(string userId)
         {

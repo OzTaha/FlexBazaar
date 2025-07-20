@@ -27,6 +27,8 @@ body {
     object-fit: cover;
 }*/
 
+/* Sepette ürün görselleri */
+
 .shopping-cart-table img {
    height: 50px;
     object-fit: cover;
@@ -38,6 +40,8 @@ body {
         align-items: center !important;
         gap: 10px !important;
     }
+
+/* Sepette ürün görselleri */
 
 .product-item {
     height: 400px;
