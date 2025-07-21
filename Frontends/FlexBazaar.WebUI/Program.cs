@@ -13,6 +13,7 @@ using FlexBazaar.WebUI.Services.CatalogServices.ProductServices;
 using FlexBazaar.WebUI.Services.CatalogServices.SpecialOfferServices;
 using FlexBazaar.WebUI.Services.CommentServices;
 using FlexBazaar.WebUI.Services.Concrete;
+using FlexBazaar.WebUI.Services.DiscountServices;
 using FlexBazaar.WebUI.Services.Interfaces;
 using FlexBazaar.WebUI.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -73,6 +74,12 @@ builder.Services.AddHttpClient<IUserService, UserService>(opt=>
 builder.Services.AddHttpClient<IBasketService, BasketService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Basket.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+// Discount
+builder.Services.AddHttpClient<IDiscountService, DiscountService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Discount.Path}");
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 // Category

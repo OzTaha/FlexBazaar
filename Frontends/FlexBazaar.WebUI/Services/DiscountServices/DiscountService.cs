@@ -11,9 +11,9 @@ namespace FlexBazaar.WebUI.Services.DiscountServices
             _httpClient = httpClient;
         }
 
-        public async Task<GetDiscountCodeDetailByCode> GetDiscountCode(string discountCode)
+        public async Task<GetDiscountCodeDetailByCode> GetDiscountCode(string code)
         {
-            var responseMessage = await _httpClient.GetAsync($"discounts/GetCodeDetailByCode{discountCode}");
+            var responseMessage = await _httpClient.GetAsync("http://localhost:7018/api/Discounts/GetCodeDetailByCodeAsync?Code=BONUS20" + code);
             var values = await responseMessage.Content.ReadFromJsonAsync<GetDiscountCodeDetailByCode>();
             return values ?? new GetDiscountCodeDetailByCode
             {
