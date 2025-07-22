@@ -72,6 +72,18 @@ namespace FlexBazaar.Discount.Services
             }
         }
 
+        public int GetDiscountCouponCountRate(string code)
+        {
+            string query = "Select Rate From Coupons where Code = @code";
+            var parameters = new DynamicParameters();
+            parameters.Add("@code", code);
+            using (var connection = _context.CreateConnection())
+            {
+                var values =  connection.QuerySingleOrDefault<int>(query, parameters);
+                return values;
+            }
+        }
+
         public async Task UpdateDiscountCouponAsync(UpdateDiscountCouponDto updateCouponDto)
         {
             string query = "Update Coupons Set Code = @code, Rate =@rate, IsActive = @isActive, ValidDate = @validDate where CouponId = @couponId";

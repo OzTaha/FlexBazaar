@@ -24,5 +24,12 @@ namespace FlexBazaar.WebUI.Services.DiscountServices
                 ValidDate = DateTime.MinValue
             };
         }
+
+        public async Task<int> GetDiscountCouponCountRate(string code)
+        {
+            var responseMessage = await _httpClient.GetAsync("http://localhost:7018/api/Discounts/GetDiscountCouponCountRate?code=" + code);
+            var values = await responseMessage.Content.ReadFromJsonAsync<int>();
+            return values > 0 ? values : 0;
+        }
     }
 }

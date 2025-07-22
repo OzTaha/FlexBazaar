@@ -1,20 +1,20 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 /*.vendor-carousel div {
@@ -30,16 +30,16 @@ body {
 /* Sepette ürün görselleri */
 
 .shopping-cart-table img {
-   height: 50px;
+    height: 50px;
     object-fit: cover;
 }
 
-    .shopping-cart-table :is(tr) td:nth-child(1)  {
-        display: flex !important;
-        justify-content: flex-start !important;
-        align-items: center !important;
-        gap: 10px !important;
-    }
+.shopping-cart-table :is(tr) td:nth-child(1) {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
 
 /* Sepette ürün görselleri */
 
@@ -51,6 +51,6 @@ body {
     height: 60%;
 }
 
-    .product-card-text-content {
-        height: 40%;
-    }
+.product-card-text-content {
+    height: 40%;
+}
