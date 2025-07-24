@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlexBazaar.Order.Application.Features.CQRS.Commands.AddressCommands
+namespace FlexBazaar.DtoLayer.OrderDtos.OrderAddressDtos
 {
-    // parametleri tutacak birinci class
-    public class CreateAddressCommand
+    public class CreateOrderAddressDto
     {
-        public int AddressId { get; set; }
         public string UserId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

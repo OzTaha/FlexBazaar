@@ -21,7 +21,7 @@ namespace FlexBazaar.Order.Application.Features.CQRS.Handlers.AddressHandlers
         public async Task Handle(UpdateAddressCommand command)
         {
             var values = await _repository.GetByIdAysnc(command.AddressId);
-            values.Detail = command.Detail;
+            values.Detail1 = command.Detail;
             values.District = command.District;
             values.City = command.City;
             values.UserId = command.UserId;

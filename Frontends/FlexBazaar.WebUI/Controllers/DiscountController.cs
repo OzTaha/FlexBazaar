@@ -23,10 +23,8 @@ namespace FlexBazaar.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> ConfirmDiscountCoupon(string code)
         {
-            var values = await _discountService.GetDiscountCouponCountRate(code);
-           
+            var values = await _discountService.GetDiscountCouponCountRate(code);           
             // ViewBag.newTotalPriceWithDiscount = newTotalPriceWithDiscount;
-
             // Geçerli kupon kodu, indirimi uygula
             var basketValues = await _basketService.GetBasket();
             var totalPriceWithTax = basketValues.TotalPrice + (basketValues.TotalPrice / 100 * 10); // 10% vergi eklenmiş toplam tutar

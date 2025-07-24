@@ -1,0 +1,39 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "IdentityServer\\FlexBazaar.IdentityServer\\FlexBazaar.IdentityServer.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Services\\Catalog\\FlexBazaar.Catalog\\FlexBazaar.Catalog.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "ApiGateway\\FlexBazaar.OcelotGateway\\FlexBazaar.OcelotGateway.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Frontends\\FlexBazaar.WebUI\\FlexBazaar.WebUI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Services\\Comment\\FlexBazaar.Comment\\FlexBazaar.Comment.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Services\\Basket\\FlexBazaar.Basket\\FlexBazaar.Basket.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Services\\Discount\\FlexBazaar.Discount\\FlexBazaar.Discount.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Services\\Order\\Presentation\\FlexBazaar.Order.WebApi\\FlexBazaar.Order.WebApi.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
