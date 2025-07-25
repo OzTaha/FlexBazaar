@@ -13,7 +13,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       // uygulama çalışsın ama browser açılmasın diye false yapıldı.
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "swagger",
       // yeni sekmede açmasın diye http://localhost:5238'i silindi.
       // 7180 port numarası 7019 olarak değiştirildi.

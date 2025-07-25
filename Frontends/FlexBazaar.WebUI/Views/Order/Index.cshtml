@@ -1,16 +1,66 @@
-﻿
+﻿@model CreateOrderAddressDto
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/UILayout/_UILayout.cshtml";
 }
 
 <div class="container-fluid">
-    <div class="row px-xl-5">
-        @await Component.InvokeAsync("_OrderDetailComponentPartial")        
-        <div class="col-lg-4">            
-            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Sipariş Özeti</span></h5>
-            @await Component.InvokeAsync("_OrderSummaryComponentPartial")
-            @await Component.InvokeAsync("_PaymentMethodComponentPartial")           
+    <form method="post">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Sipariş Teslimat ve Fatura Adresi</span></h5>
+                <div class="bg-light p-30 mb-5">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Adınız</label>
+                            <input class="form-control" type="text" asp-for="Name" placeholder="Adınız">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Soyadınız</label>
+                            <input class="form-control" type="text" asp-for="Surname" placeholder="Soyadınız">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>E-mail Adresiniz</label>
+                            <input class="form-control" type="text" asp-for="Email" placeholder="example@email.com">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Telefon Numaranız</label>
+                            <input class="form-control" type="text" asp-for="Phone" placeholder="+90 111 111 11 11">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Address Satır 1</label>
+                            <input class="form-control" type="text" asp-for="Detail1" placeholder="123 sokak">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Address Satır 2</label>
+                            <input class="form-control" type="text" asp-for="Detail2" placeholder="123 mahalle">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Ülke</label>
+                            <input class="form-control" type="text" asp-for="Country" placeholder="Türkiye">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Şehir</label>
+                            <input class="form-control" type="text" asp-for="City" placeholder="Şehriniz">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>İlçe</label>
+                            <input class="form-control" type="text" asp-for="District" placeholder="İlçeniz">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Posta Kodu</label>
+                            <input class="form-control" type="text" asp-for="ZipCode" placeholder="1235">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Sipariş Özeti</span></h5>
+
+                @await Component.InvokeAsync("_OrderSummaryComponentPartial")
+
+                @await Component.InvokeAsync("_PaymentMethodComponentPartial")               
+            </div>
         </div>
-    </div>
+    </form>
 </div>
