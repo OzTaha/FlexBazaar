@@ -9,7 +9,6 @@ namespace FlexBazaar.WebUI.Controllers
             ViewBag.breadcrumb1 = "Anasayfa";
             ViewBag.breadcrumb2 = "Ödeme Ekranı";
             ViewBag.breadcrumb3 = "Kartla Ödeme";
-
             return View();
         }
     }
