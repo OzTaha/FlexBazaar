@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FlexBazaar.Order.Application.Features.Mediator.Queries.OrderingQueries
 {
-    // sadece 1 değer dönecek. O yüzden List değil, tek bir değer dönecek
+    // sadece 1 değer dönecek. O yüzden List değil
     public class GetOrderingByIdQuery:IRequest<GetOrderingByIdQueryResult>
     {
         public int Id { get; set; }

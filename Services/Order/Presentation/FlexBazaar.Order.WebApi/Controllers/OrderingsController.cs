@@ -22,19 +22,19 @@ namespace FlexBazaar.Order.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> OrderingList()
         {
-            var values = await _mediator.Send(new GetOrderingQuery()); 
+            var values = await _mediator.Send(new GetOrderingQuery());
             return Ok(values);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOrderingById(int id)
         {
-            var values = await _mediator.Send(new GetOrderingByIdQuery (id));
+            var values = await _mediator.Send(new GetOrderingByIdQuery(id));
             return Ok(values);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateOrdering( CreateOrderingCommand command)
+        public async Task<IActionResult> CreateOrdering(CreateOrderingCommand command)
         {
             await _mediator.Send(command);
             return Ok("Sipariş başarıyla eklendi.");
@@ -43,7 +43,7 @@ namespace FlexBazaar.Order.WebApi.Controllers
         [HttpDelete]
         public async Task<IActionResult> RemoveOrdering(int id)
         {
-            await _mediator.Send(new RemoveOrderingCommand (id));
+            await _mediator.Send(new RemoveOrderingCommand(id));
             return Ok("Sipariş başarıyla silindi.");
         }
 
@@ -52,6 +52,13 @@ namespace FlexBazaar.Order.WebApi.Controllers
         {
             await _mediator.Send(command);
             return Ok("Sipariş başarıyla güncellendi.");
+        }
+
+        [HttpGet("GetOrderingByUserId")]
+        public async Task<IActionResult> GetOrderingByUserId(string id)
+        {
+            var values = await _mediator.Send(new GetOrderingByUserIdQuery(id));
+            return Ok(values);
         }
     }
 }

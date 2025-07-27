@@ -1,16 +1,40 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_UserLayoutHeadComponentPartial")
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    @RenderBody()
-</head>
 <body>
+    <div class="container-scroller d-flex">
+        <!-- sidebar -->
+        @await Component.InvokeAsync("_UserLayoutSidebarComponentPartial")
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- navbar -->
+            @await Component.InvokeAsync("_UserLayoutNavbarComponentPartial")
+            @RenderBody()
+            <!-- main-panel -->
+            <div class="main-panel">
+                <!-- footer -->
+                <footer class="footer">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © FlexBazaar @DateTime.Now.Year</span>
+                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><a href="https://www.bootstrapdash.com/" target="_blank">FlexBazaar Kullancı Paneli</a> Tüm Hakları Saklıdır.</span>
+                            </div>
+                        </div>
+                    </div>
+                </footer>               
+            </div>
+        </div>
+    </div>
+    <!-- js -->
+    <script src="~/spica/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/spica/js/off-canvas.js"></script>
+    <script src="~/spica/js/hoverable-collapse.js"></script>
+    <script src="~/spica/js/template.js"></script>
 </body>
 </html>

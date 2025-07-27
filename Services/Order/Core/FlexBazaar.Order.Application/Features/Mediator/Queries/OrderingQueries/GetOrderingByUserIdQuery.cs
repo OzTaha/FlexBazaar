@@ -8,9 +8,13 @@ using System.Threading.Tasks;
 
 namespace FlexBazaar.Order.Application.Features.Mediator.Queries.OrderingQueries
 {
-    // her bir entitity için bir query oluşturulur. 
-    // tüm liste dönecek.
-    public class GetOrderingQuery:IRequest<List<GetOrderingQueryResult>>
-    {      
+    public class GetOrderingByUserIdQuery: IRequest<List<GetOrderingByUserIdQueryResult>>
+    {
+        public string Id { get; set; }
+        public GetOrderingByUserIdQuery(string id)
+        {
+            Id = id;
+        }
+        
     }
 }
