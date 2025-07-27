@@ -9,6 +9,7 @@
   <!-- base:css -->
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -665,6 +666,26 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
+
+
+<!-- ... diğer script etiketleri ... -->
+<script>
+  function sanitizeFileName(name) {
+    return name.replace(/[^a-zA-Z0-9._-]/g, '');
+  }
+
+  $(function () {
+    $('#fileupload').fileupload({
+      add: function (e, data) {
+        data.files.forEach(file => {
+          file.name = sanitizeFileName(file.name);
+        });
+        data.submit();
+      }
+      // ... diğer ayarlar ...
+    });
+  });
+</script>
 
   <!-- base:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
