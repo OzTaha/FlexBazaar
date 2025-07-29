@@ -54,7 +54,7 @@ namespace FlexBazaar.Order.WebApi.Controllers
             return Ok("Sipariş başarıyla güncellendi.");
         }
 
-        [HttpGet("GetOrderingByUserId")]
+        [HttpGet("GetOrderingByUserId/{id}")]
         public async Task<IActionResult> GetOrderingByUserId(string id)
         {
             var values = await _mediator.Send(new GetOrderingByUserIdQuery(id));

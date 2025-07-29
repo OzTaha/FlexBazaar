@@ -16,6 +16,7 @@ using FlexBazaar.WebUI.Services.Concrete;
 using FlexBazaar.WebUI.Services.DiscountServices;
 using FlexBazaar.WebUI.Services.Interfaces;
 using FlexBazaar.WebUI.Services.OrderServices.OrderAddressServices;
+using FlexBazaar.WebUI.Services.OrderServices.OrderOrderingServices;
 using FlexBazaar.WebUI.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -75,6 +76,12 @@ builder.Services.AddHttpClient<IUserService, UserService>(opt=>
 builder.Services.AddHttpClient<IBasketService, BasketService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Basket.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+// Order Ordering
+builder.Services.AddHttpClient<IOrderOrderingService, OrderOrderingService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Order.Path}");
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 // Discount

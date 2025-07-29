@@ -15,7 +15,7 @@ namespace FlexBazaar.WebUI.Services.OrderServices.OrderOrderingServices
             //var resposeMessage = await _httpClient.GetAsync("orders/GetOrderingByUserId?id=" + id);
             //var values = await resposeMessage.Content.ReadFromJsonAsync<ResultOrderingByUserIdDto>();
             //return values;
-            var responseMessage = await _httpClient.GetAsync("orders/GetOrderingByUserId?id=" + id);
+            var responseMessage = await _httpClient.GetAsync($"orderings/GetOrderingByUserId/{id}");
             var values = await responseMessage.Content.ReadFromJsonAsync<List<ResultOrderingByUserIdDto>>();
             return values;
         }
