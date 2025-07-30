@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FlexBazaar.Message.Migrations
 {
     [DbContext(typeof(MessageContext))]
-    [Migration("20250729232207_mig1")]
+    [Migration("20250730121400_mig1")]
     partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

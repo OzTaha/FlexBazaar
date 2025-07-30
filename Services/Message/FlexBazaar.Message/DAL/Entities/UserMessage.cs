@@ -16,5 +16,6 @@
         public bool IsRead { get; set; }
         // mesajın gönderildiği tarih
         public DateTime MessageDate { get; set; }
+
     }
 }

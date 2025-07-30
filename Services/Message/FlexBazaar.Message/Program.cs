@@ -1,10 +1,10 @@
 using FlexBazaar.Message.DAL.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 
 var connectionString = builder.Configuration.GetConnectionString("MessageDbConnection");
 
