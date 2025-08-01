@@ -15,6 +15,7 @@ using FlexBazaar.WebUI.Services.CommentServices;
 using FlexBazaar.WebUI.Services.Concrete;
 using FlexBazaar.WebUI.Services.DiscountServices;
 using FlexBazaar.WebUI.Services.Interfaces;
+using FlexBazaar.WebUI.Services.MessageServices;
 using FlexBazaar.WebUI.Services.OrderServices.OrderAddressServices;
 using FlexBazaar.WebUI.Services.OrderServices.OrderOrderingServices;
 using FlexBazaar.WebUI.Settings;
@@ -88,6 +89,12 @@ builder.Services.AddHttpClient<IOrderOrderingService, OrderOrderingService>(opt 
 builder.Services.AddHttpClient<IDiscountService, DiscountService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Discount.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+// Message
+builder.Services.AddHttpClient<IMessageService, MessageService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Message.Path}");
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 // Order

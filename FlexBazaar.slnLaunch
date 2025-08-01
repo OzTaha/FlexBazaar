@@ -33,6 +33,10 @@
       {
         "Path": "Services\\Order\\Presentation\\FlexBazaar.Order.WebApi\\FlexBazaar.Order.WebApi.csproj",
         "Action": "Start"
+      },
+      {
+        "Path": "Services\\Message\\FlexBazaar.Message\\FlexBazaar.Message.csproj",
+        "Action": "Start"
       }
     ]
   }
