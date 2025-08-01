@@ -1,9 +1,7 @@
-﻿namespace FlexBazaar.Message.DAL.Entities
+﻿namespace FlexBazaar.Message.Dtos
 {
-    public class UserMessage
-    {
-        // mesaj id'si
-        public int UserMessageId { get; set; }
+    public class CreateMessageDto
+    {        
         // mesaj gönderen kullanıcı id'si
         public string SenderId { get; set; }
         // mesajı alan kullanıcı id'si

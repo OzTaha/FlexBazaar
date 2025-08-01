@@ -1,6 +1,6 @@
-﻿namespace FlexBazaar.Message.DAL.Entities
+﻿namespace FlexBazaar.Message.Dtos
 {
-    public class UserMessage
+    public class UpdateMessageDto
     {
         // mesaj id'si
         public int UserMessageId { get; set; }

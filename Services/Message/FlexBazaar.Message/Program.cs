@@ -1,19 +1,31 @@
 using FlexBazaar.Message.DAL.Context;
+using FlexBazaar.Message.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.Authority = builder.Configuration["IdentityServerUrl"];
+    // oluþturulan tokenlerle hangi sayfalara eriþileceðini belirler
+    opt.Audience = "ResourceMessage";
+    // http kullanmak için. fakat canlýya alacaðýn zaman yorum satýrýna al. 
+    opt.RequireHttpsMetadata = false;
+});
 
 
-var connectionString = builder.Configuration.GetConnectionString("MessageDbConnection");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<MessageContext>(opt =>
 {
     opt.UseNpgsql(connectionString);
 });
 
-
+builder.Services.AddScoped<IUserMessageService, UserMessageService>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -31,6 +43,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
