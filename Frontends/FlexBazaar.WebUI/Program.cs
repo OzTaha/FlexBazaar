@@ -18,6 +18,7 @@ using FlexBazaar.WebUI.Services.Interfaces;
 using FlexBazaar.WebUI.Services.MessageServices;
 using FlexBazaar.WebUI.Services.OrderServices.OrderAddressServices;
 using FlexBazaar.WebUI.Services.OrderServices.OrderOrderingServices;
+using FlexBazaar.WebUI.Services.UserIdentityServices;
 using FlexBazaar.WebUI.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -69,6 +70,12 @@ builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTo
 var values = builder.Configuration.GetSection("serviceApiSettings").Get<ServiceApiSettings>();
 
 builder.Services.AddHttpClient<IUserService, UserService>(opt=>
+{
+    opt.BaseAddress = new Uri(values.IdentityServerUrl);
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+// User List
+builder.Services.AddHttpClient<IUserIdentityService, UserIdentityService>(opt =>
 {
     opt.BaseAddress = new Uri(values.IdentityServerUrl);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();

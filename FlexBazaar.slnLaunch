@@ -37,6 +37,10 @@
       {
         "Path": "Services\\Message\\FlexBazaar.Message\\FlexBazaar.Message.csproj",
         "Action": "Start"
+      },
+      {
+        "Path": "Services\\Cargo\\FlexBazaar.Cargo.WebApi\\FlexBazaar.Cargo.WebApi.csproj",
+        "Action": "Start"
       }
     ]
   }
