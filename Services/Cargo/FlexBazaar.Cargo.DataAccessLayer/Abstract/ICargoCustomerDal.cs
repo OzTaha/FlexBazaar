@@ -10,5 +10,6 @@ namespace FlexBazaar.Cargo.DataAccessLayer.Abstract
     // IGenericDal'dan CargoCustomer class'ı için kalıtım/miras(inheritance) alınacak
     public interface ICargoCustomerDal:IGenericDal<CargoCustomer>
     {
+        CargoCustomer GetCargoCustomerById(string id);
     }
 }

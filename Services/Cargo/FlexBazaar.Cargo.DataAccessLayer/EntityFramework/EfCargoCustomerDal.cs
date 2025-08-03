@@ -13,10 +13,16 @@ namespace FlexBazaar.Cargo.DataAccessLayer.EntityFramework
     // GenericRepository'den miras alınacak. CargoCompany class'na özgü metodlar gelirse ICargoCompanyDal interface'sinden miras(inheritance) alacak.
     public class EfCargoCustomerDal:GenericRepository<CargoCustomer>, ICargoCustomerDal
     {
+        private readonly CargoContext _cargoContext;
         // : base(context) ifadesi, miras alınan class'ın (GenericRepository<CargoCompany>) constructor'ını çağırarak, base class'ın doğru şekilde başlatılmasını sağlar.
-        public EfCargoCustomerDal(CargoContext context): base(context)
+        public EfCargoCustomerDal(CargoContext context, CargoContext cargoContext) : base(context)
         {
-            
+            _cargoContext = cargoContext;
+        }
+        public CargoCustomer GetCargoCustomerById(string id)
+        {
+           var values = _cargoContext.CargoCustomers.Where(x => x.UserCustomerId == id).FirstOrDefault();
+            return values;
         }
     }
 }

@@ -17,6 +17,26 @@
       {
         "Path": "Services\\Cargo\\FlexBazaar.Cargo.WebApi\\FlexBazaar.Cargo.WebApi.csproj",
         "Action": "Start"
+      },
+      {
+        "Path": "Services\\Catalog\\FlexBazaar.Catalog\\FlexBazaar.Catalog.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Services\\Discount\\FlexBazaar.Discount\\FlexBazaar.Discount.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Services\\Order\\Presentation\\FlexBazaar.Order.WebApi\\FlexBazaar.Order.WebApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Services\\Basket\\FlexBazaar.Basket\\FlexBazaar.Basket.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Services\\Message\\FlexBazaar.Message\\FlexBazaar.Message.csproj",
+        "Action": "Start"
       }
     ]
   }

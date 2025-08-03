@@ -1,6 +1,7 @@
 using FlexBazaar.WebUI.Handlers;
 using FlexBazaar.WebUI.Services.BasketServices;
 using FlexBazaar.WebUI.Services.CargoServices.CargoCompanyServices;
+using FlexBazaar.WebUI.Services.CargoServices.CargoCustomerServices;
 using FlexBazaar.WebUI.Services.CatalogServices.AboutServices;
 using FlexBazaar.WebUI.Services.CatalogServices.BrandServices;
 using FlexBazaar.WebUI.Services.CatalogServices.CategoryServices;
@@ -101,6 +102,12 @@ builder.Services.AddHttpClient<IDiscountService, DiscountService>(opt =>
 
 // Cargo Company
 builder.Services.AddHttpClient<ICargoCompanyService, CargoCompanyService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Cargo.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+// Cargo Customer
+builder.Services.AddHttpClient<ICargoCustomerService, CargoCustomerService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Cargo.Path}");
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
