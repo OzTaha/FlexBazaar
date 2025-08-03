@@ -44,7 +44,8 @@ namespace FlexBazaar.Cargo.WebApi.Controllers
                 Email = createCargoCustomerDto.Email,
                 Name = createCargoCustomerDto.Name,
                 Phone = createCargoCustomerDto.Phone,
-                SurName = createCargoCustomerDto.SurName
+                SurName = createCargoCustomerDto.SurName,
+                UserCustomerId = createCargoCustomerDto.UserCustomerId
             };
             _cargoCustomerService.TInsert(cargoCustomer);
             return Ok("Kargo Müşteri Ekleme İşlemi Başarıyla Yapıldı");
@@ -69,7 +70,8 @@ namespace FlexBazaar.Cargo.WebApi.Controllers
                 Email = updateCargoCustomerDto.Email,
                 Name = updateCargoCustomerDto.Name,
                 Phone = updateCargoCustomerDto.Phone,
-                SurName = updateCargoCustomerDto.SurName
+                SurName = updateCargoCustomerDto.SurName,
+                UserCustomerId = createCargoCustomerDto.UserCustomerId
             };
             _cargoCustomerService.TUpdate(cargoCustomer);
             return Ok("Kargo Müşteri Güncelleme İşlemi Başarıyla Yapıldı");
