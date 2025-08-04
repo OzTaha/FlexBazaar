@@ -51,6 +51,13 @@ namespace FlexBazaar.Message.Services
             var values = await _messageContext.UserMessages.Where(x => x.SenderId == id).ToListAsync();
             return _mapper.Map<List<ResultSendboxMessageDto>>(values);
         }
+
+        public async Task<int> GetTotalMessageCount()
+        {
+            int values =await _messageContext.UserMessages.CountAsync();
+            return values;
+        }
+
         public async Task UpdateMessageAsync(UpdateMessageDto updateMessageDto)
         {
             var values = _mapper.Map<UserMessage>(updateMessageDto);
