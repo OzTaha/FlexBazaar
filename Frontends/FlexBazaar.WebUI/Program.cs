@@ -21,6 +21,9 @@ using FlexBazaar.WebUI.Services.MessageServices;
 using FlexBazaar.WebUI.Services.OrderServices.OrderAddressServices;
 using FlexBazaar.WebUI.Services.OrderServices.OrderOrderingServices;
 using FlexBazaar.WebUI.Services.StatisticServices.CatalogStatisticServices;
+using FlexBazaar.WebUI.Services.StatisticServices.DiscountStatisticServices;
+using FlexBazaar.WebUI.Services.StatisticServices.MessageStatisticServices;
+using FlexBazaar.WebUI.Services.StatisticServices.UserStatisticServices;
 using FlexBazaar.WebUI.Services.UserIdentityServices;
 using FlexBazaar.WebUI.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -81,6 +84,24 @@ builder.Services.AddHttpClient<IUserService, UserService>(opt=>
 builder.Services.AddHttpClient<ICatalogStatisticService, CatalogStatisticService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+// Message Statistic
+builder.Services.AddHttpClient<IMessageStatisticService, MessageStatisticService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Message.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+// Discount Statistic
+builder.Services.AddHttpClient<IDiscountStatisticService, DiscountStatisticService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Discount.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+// User Statistic
+builder.Services.AddHttpClient<IUserStatisticService, UserStatisticService>(opt =>
+{
+    opt.BaseAddress = new Uri(values.IdentityServerUrl); ;
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 // User List

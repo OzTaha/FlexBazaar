@@ -49,13 +49,13 @@
                 <div class="media-icon pull-left"><i class="icon-bargraph"></i> </div>
                 <div class="media-info">
                     <h5>En Yüksek Fiyatlı Ürün</h5>
-                    @{
+                    @{                       
                         var maxPriceName = (ViewBag.getMaxPriceProductName as string) ?? "";
                         var maxPriceText = maxPriceName.Length > 30
                         ? maxPriceName.Substring(0, 30) + "..."
                         : maxPriceName;
                     }
-                    <h4>@maxPriceText</h4>
+                    <h4 title="@maxPriceName">@maxPriceText</h4>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
                         ? minPriceName.Substring(0, 30) + "..."
                         : minPriceName;
                     }
-                    <h4>@minPriceText</h4>
+                    <h4 title="@minPriceName">@minPriceText</h4>
                 </div>
             </div>
         </div>
@@ -79,8 +79,8 @@
             <div class="media-box bg-blue">
                 <div class="media-icon pull-left"><i class="icon-basket"></i> </div>
                 <div class="media-info">
-                    <h5>Total Sales</h5>
-                    <h3>935</h3>
+                    <h5>Toplam Kullanıcı</h5>
+                    <h3>@ViewBag.getUserCount</h3>
                 </div>
             </div>
         </div>
@@ -88,8 +88,8 @@
             <div class="media-box bg-green">
                 <div class="media-icon pull-left"><i class="icon-layers"></i> </div>
                 <div class="media-info">
-                    <h5>New Orders</h5>
-                    <h3>5324</h3>
+                    <h5>Toplam Yorum</h5>
+                    <h3>@ViewBag.getTotalCommentCount</h3>
                 </div>
             </div>
         </div>
@@ -99,8 +99,8 @@
             <div class="media-box">
                 <div class="media-icon pull-left"><i class="icon-bargraph"></i> </div>
                 <div class="media-info">
-                    <h5>Total Leads</h5>
-                    <h3>1530</h3>
+                    <h5>Aktif Yorum</h5>
+                    <h3>@ViewBag.getActiveCommentCount</h3>
                 </div>
             </div>
         </div>
@@ -108,8 +108,8 @@
             <div class="media-box bg-sea">
                 <div class="media-icon pull-left"><i class="icon-wallet"></i> </div>
                 <div class="media-info">
-                    <h5>Total Payment</h5>
-                    <h3>$8,530</h3>
+                    <h5>Pasif Yorum</h5>
+                    <h3>@ViewBag.getPassiveCommentCount</h3>
                 </div>
             </div>
         </div>
@@ -117,8 +117,8 @@
             <div class="media-box bg-blue">
                 <div class="media-icon pull-left"><i class="icon-basket"></i> </div>
                 <div class="media-info">
-                    <h5>Total Sales</h5>
-                    <h3>935</h3>
+                    <h5>İndirim Kuponu</h5>
+                    <h3>@ViewBag.getDiscountCouponCount</h3>
                 </div>
             </div>
         </div>
@@ -126,8 +126,8 @@
             <div class="media-box bg-green">
                 <div class="media-icon pull-left"><i class="icon-layers"></i> </div>
                 <div class="media-info">
-                    <h5>New Orders</h5>
-                    <h3>5324</h3>
+                    <h5>Toplam Mesaj</h5>
+                    <h3>@ViewBag.getTotalMessageCount</h3>
                 </div>
             </div>
         </div>
@@ -137,7 +137,7 @@
             <div class="media-box">
                 <div class="media-icon pull-left"><i class="icon-bargraph"></i> </div>
                 <div class="media-info">
-                    <h5>Total Leads</h5>
+                    <h5>Toplam Alışveriş</h5>
                     <h3>1530</h3>
                 </div>
             </div>
@@ -146,7 +146,7 @@
             <div class="media-box bg-sea">
                 <div class="media-icon pull-left"><i class="icon-wallet"></i> </div>
                 <div class="media-info">
-                    <h5>Total Payment</h5>
+                    <h5>Bugünkü Satış</h5>
                     <h3>$8,530</h3>
                 </div>
             </div>
@@ -155,7 +155,7 @@
             <div class="media-box bg-blue">
                 <div class="media-icon pull-left"><i class="icon-basket"></i> </div>
                 <div class="media-info">
-                    <h5>Total Sales</h5>
+                    <h5>Son Satış Tutarı</h5>
                     <h3>935</h3>
                 </div>
             </div>
