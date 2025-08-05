@@ -20,6 +20,7 @@ using FlexBazaar.WebUI.Services.Interfaces;
 using FlexBazaar.WebUI.Services.MessageServices;
 using FlexBazaar.WebUI.Services.OrderServices.OrderAddressServices;
 using FlexBazaar.WebUI.Services.OrderServices.OrderOrderingServices;
+using FlexBazaar.WebUI.Services.StatisticServices.CatalogStatisticServices;
 using FlexBazaar.WebUI.Services.UserIdentityServices;
 using FlexBazaar.WebUI.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -74,6 +75,12 @@ var values = builder.Configuration.GetSection("serviceApiSettings").Get<ServiceA
 builder.Services.AddHttpClient<IUserService, UserService>(opt=>
 {
     opt.BaseAddress = new Uri(values.IdentityServerUrl);
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+// Catalog Statistic
+builder.Services.AddHttpClient<ICatalogStatisticService, CatalogStatisticService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 // User List
