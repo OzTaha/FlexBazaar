@@ -93,6 +93,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Message", "Message", "{A305
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Message", "Services\Message\FlexBazaar.Message\FlexBazaar.Message.csproj", "{64CC628E-F4E8-47E8-AD2F-56CAF4C2EDF6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalRRealTime", "SignalRRealTime", "{76AA4C3F-C032-49A5-BD6C-2F976A29478F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.SignalRRealTimeApi", "Services\SignalRRealTime\FlexBazaar.SignalRRealTimeApi\FlexBazaar.SignalRRealTimeApi.csproj", "{6F3ECFF5-627E-4196-B028-49F9ADEAF731}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,6 +183,10 @@ Global
 		{64CC628E-F4E8-47E8-AD2F-56CAF4C2EDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64CC628E-F4E8-47E8-AD2F-56CAF4C2EDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64CC628E-F4E8-47E8-AD2F-56CAF4C2EDF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F3ECFF5-627E-4196-B028-49F9ADEAF731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F3ECFF5-627E-4196-B028-49F9ADEAF731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F3ECFF5-627E-4196-B028-49F9ADEAF731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F3ECFF5-627E-4196-B028-49F9ADEAF731}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -216,6 +224,8 @@ Global
 		{86DC6E18-DB2D-46C3-AC54-0FD072061013} = {AF2CCC44-D589-46DC-A634-3CCEE96F0A5F}
 		{A3059FFF-2DE4-4FF4-AC3D-4A6B63645286} = {F7F775B1-E31D-4760-B744-34819E57251A}
 		{64CC628E-F4E8-47E8-AD2F-56CAF4C2EDF6} = {A3059FFF-2DE4-4FF4-AC3D-4A6B63645286}
+		{76AA4C3F-C032-49A5-BD6C-2F976A29478F} = {F7F775B1-E31D-4760-B744-34819E57251A}
+		{6F3ECFF5-627E-4196-B028-49F9ADEAF731} = {76AA4C3F-C032-49A5-BD6C-2F976A29478F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA159D74-788F-47B9-92B9-E3AAF814AE91}

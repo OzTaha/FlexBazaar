@@ -29,18 +29,25 @@
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="icon-envelope"></i>
-                        <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        <div class="notify">
+                            <span class="badge">@ViewBag.messageCount</span>
+                            <span class="point"></span>
+                        </div>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">You have 4 messages</li>
+                        <li class="header">Şu anda @ViewBag.messageCount yeni mesajınız var.</li>
                         <li>
                             <ul class="menu">
                                 <li>
                                     <a href="#">
-                                        <div class="pull-left"><img src="../dist/img/img1.jpg" class="img-circle" alt="User Image"></div>
+                                        <div class="pull-left">
+                                            <img src="../dist/img/img1.jpg" class="img-circle" alt="User Image">
+                                        </div>
                                         <h4>Admin Paneli</h4>
                                         <p>Lorem ipsum dolor sit amet.</p>
-                                        <p><small><i class="fa fa-clock-o"></i> 2 mins</small></p>
+                                        <p>
+                                            <small><i class="fa fa-clock-o"></i> 2 mins</small>
+                                        </p>
                                     </a>
                                 </li>
                                 <li>
@@ -77,10 +84,13 @@
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="icon-megaphone"></i>
-                        <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        <div class="notify"> 
+                            <span class="badge">@ViewBag.commentTotalCount</span>
+                            <span class="point"></span>
+                        </div>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">Notifications</li>
+                        <li class="header">Şu anda @ViewBag.commentTotalCount yeni yorumunuz var.</li>
                         <li>
                             <ul class="menu">
                                 <li><a href="#"><i class="icon-lightbulb"></i> Lorem ipsum dolor sit amet </a> </li>

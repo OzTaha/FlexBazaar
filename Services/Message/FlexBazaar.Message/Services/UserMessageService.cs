@@ -58,6 +58,12 @@ namespace FlexBazaar.Message.Services
             return values;
         }
 
+        public async Task<int> GetTotalMessageCountByReceiverId(string id)
+        {
+            var values = await _messageContext.UserMessages.Where(x => x.ReceiverId == id).CountAsync();
+            return values;
+        }
+
         public async Task UpdateMessageAsync(UpdateMessageDto updateMessageDto)
         {
             var values = _mapper.Map<UserMessage>(updateMessageDto);

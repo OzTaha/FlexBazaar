@@ -8,6 +8,8 @@ namespace FlexBazaar.WebUI.Services.MessageServices
         Task<List<ResultInboxMessageDto>> GetInboxMessageAysnc(string id);
         // SenderId'ye mesajları getirir
         Task<List<ResultSendboxMessageDto>> GetSendboxMessageAysnc(string id);
+
+        Task<int> GetTotalMessageCountByReceiverId(string id);
         //Task CreateMessageAsync(CreateMessageDto createMessageDto);
         //Task UpdateMessageAsync(UpdateMessageDto updateMessageDto);
         //Task DeleteMessageAsync(int id);

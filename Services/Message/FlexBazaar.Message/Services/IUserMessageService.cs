@@ -14,6 +14,9 @@ namespace FlexBazaar.Message.Services
         Task DeleteMessageAsync(int id);
         // id'ye göre mesajı getirir
         Task<GetByIdMessageDto> GetByIdMessageAsync(int id);
+        // toplam mesaj sayısını getirir
         Task<int> GetTotalMessageCount();
+        // ReceiverId'ye göre mesaj sayısını getirir
+        Task<int> GetTotalMessageCountByReceiverId(string id);
     }
 }
