@@ -1,24 +1,32 @@
 using FlexBazaar.SignalRRealTimeApi.Hubs;
+using FlexBazaar.SignalRRealTimeApi.SignalRServices.SignalRCommentServices;
+using FlexBazaar.SignalRRealTimeApi.SignalRServices.SignalRMessageServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddHttpClient();
+
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("CorsPolicy", policy =>
     {
-                policy.AllowAnyHeader()
-                .AllowAnyMethod()
-                .SetIsOriginAllowed((host) => true)
-                .AllowCredentials();
-
+        policy.AllowAnyHeader()
+               .AllowAnyMethod()
+               .SetIsOriginAllowed((host) => true)
+               .AllowCredentials();
     });
 });
 
 // Add SignalR services
 // sorun olursa buraya bak
 builder.Services.AddSignalR();
+
+builder.Services.AddScoped<ISignalRMessageService, SignalRMessageService>();
+builder.Services.AddScoped<ISignalRCommentService, SignalRCommentService>();
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -45,3 +53,5 @@ app.MapControllers();
 app.MapHub<SignalRHub>("/signalrhub");
 
 app.Run();
+
+// localhost://1234/swagger/category/Index

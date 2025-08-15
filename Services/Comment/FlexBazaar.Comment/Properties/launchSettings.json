@@ -12,7 +12,7 @@
     "FlexBazaar.Comment": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": false,
+      "launchBrowser": true,
       "launchUrl": "swagger",
       // canlıya alınacağı zaman https yap!!!
       "applicationUrl": "http://localhost:7022",

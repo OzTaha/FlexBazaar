@@ -2,13 +2,13 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml"; 
 }
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
+
+<script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
-
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
     <div class="container">
         <div class="container-fluid">
@@ -16,17 +16,21 @@
                 <div class="col-md-12">
                     <script type="text/javascript">
                         $(document).ready(()=> {
-                            var connection = new signalR.HubConnectionBuilder()
-                                .withUrl("http://localhost:7256/SignalRHub").build();
+                            var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7256/SignalRHub").build();
                                 $("#connstatus").text(connection.state);
 
                                 connection.start().then(() => {
                                         $("#connstatus").text(connection.state);
+                                connection.invoke("SendStatisticCount");
                                     }).catch((err) => {
-                                        console.error(err);                                      
+                                        console.error(err)                          
                                     });
-                        })
-                    </script>
+
+                            connection.on("ReceiveCommentCount", (getTotalCommentCount) => {
+                            $("#commentCount").text(getTotalCommentCount);
+                                });
+                        });
+                    </script>                                  
                 </div>
             </div>
         </div>
@@ -41,13 +45,14 @@
                     <div class="col-md-8 offset-2">
                         <div class="alert alert-primary">
                             <p>Bağlantının durumu: <strong id="connstatus"></strong></p>
+                        </div> 
+                        <div class="alert alert-primary">
+                            <p>Yorum Sayısı: <strong id="commentCount"></strong></p>
                         </div>
                     </div>
-                    <a href="/Admin/Category/CreateCategory/" class="btn btn-primary">Yeni Kategori Girişi</a>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 

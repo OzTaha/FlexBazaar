@@ -16,7 +16,6 @@ namespace FlexBazaar.WebUI.Areas.Admin.ViewComponents.AdminLayoutViewComponents
             _userService = userService;
             _commentService = commentService;
         }
-
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var user = await _userService.GetUserInfo();
@@ -24,8 +23,8 @@ namespace FlexBazaar.WebUI.Areas.Admin.ViewComponents.AdminLayoutViewComponents
             ViewBag.messageCount = messageCount;
 
 
-            int commentTotalCount = await _commentService.GetTotalCommentCount();
-            ViewBag.commentTotalCount = commentTotalCount;
+            int totalCommentCount = await _commentService.GetTotalCommentCount();
+            ViewBag.totalCommentCount = totalCommentCount;
             return View();
         }
     }
