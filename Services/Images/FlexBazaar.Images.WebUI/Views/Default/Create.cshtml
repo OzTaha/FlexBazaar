@@ -1,0 +1,23 @@
+﻿@model FlexBazaar.Images.WebUI.DAL.Entities.ImageDrive
+
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h2 class="alert alert-primary mt-4">Google Drive Storage Resim Yükleme Sayfası</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        <label>Ürün Adı</label>
+        <input type="text" class="form-control border" name="Name" />
+        <br />
+        <label>Ürün Görseli Seçin</label>
+        <input type="file" class="form-control border" name="Photo" />
+        <br />
+        <input name="SavedUrl" type="hidden" class="form-control" />
+        <input name="SavedFileName" type="hidden" class="form-control" />
+        <button class="btn btn-outline-primary">Ürün Görselini Kaydet</button>
+    </form>
+</div>

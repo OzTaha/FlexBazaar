@@ -38,6 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirement
 		AdminStatisticApiForUI.txt = AdminStatisticApiForUI.txt
 		Credit Card.txt = Credit Card.txt
 		FontAwesomeLink.txt = FontAwesomeLink.txt
+		GoogleCloudStorageCode.txt = GoogleCloudStorageCode.txt
 		IdentityServerVersionErrorSolution.txt = IdentityServerVersionErrorSolution.txt
 		LoginIndex.txt = LoginIndex.txt
 		OcelotCodeExample.txt = OcelotCodeExample.txt
@@ -98,6 +99,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.SignalRRealTimeApi", "Services\SignalRRealTime\FlexBazaar.SignalRRealTimeApi\FlexBazaar.SignalRRealTimeApi.csproj", "{6F3ECFF5-627E-4196-B028-49F9ADEAF731}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.Images.WebUI", "Services\Images\FlexBazaar.Images.WebUI\FlexBazaar.Images.WebUI.csproj", "{27468413-D57A-4C88-AB88-D034E61FD7AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RabbitMQMessage", "RabbitMQMessage", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.RabbitMQMessageApi", "Services\RabbitMQMessage\FlexBazaar.RabbitMQMessageApi\FlexBazaar.RabbitMQMessageApi.csproj", "{E3CD116C-2614-4FA6-B4B7-6F0A6237E838}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexBazaar.RapidApiWebUI", "RapidApi\FlexBazaar.RapidApiWebUI\FlexBazaar.RapidApiWebUI.csproj", "{C65D57E3-D31F-43AE-A874-9B46D2453519}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -193,6 +200,14 @@ Global
 		{27468413-D57A-4C88-AB88-D034E61FD7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27468413-D57A-4C88-AB88-D034E61FD7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27468413-D57A-4C88-AB88-D034E61FD7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3CD116C-2614-4FA6-B4B7-6F0A6237E838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3CD116C-2614-4FA6-B4B7-6F0A6237E838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3CD116C-2614-4FA6-B4B7-6F0A6237E838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3CD116C-2614-4FA6-B4B7-6F0A6237E838}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C65D57E3-D31F-43AE-A874-9B46D2453519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C65D57E3-D31F-43AE-A874-9B46D2453519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C65D57E3-D31F-43AE-A874-9B46D2453519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C65D57E3-D31F-43AE-A874-9B46D2453519}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -233,6 +248,9 @@ Global
 		{76AA4C3F-C032-49A5-BD6C-2F976A29478F} = {F7F775B1-E31D-4760-B744-34819E57251A}
 		{6F3ECFF5-627E-4196-B028-49F9ADEAF731} = {76AA4C3F-C032-49A5-BD6C-2F976A29478F}
 		{27468413-D57A-4C88-AB88-D034E61FD7AB} = {AF2CCC44-D589-46DC-A634-3CCEE96F0A5F}
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {F7F775B1-E31D-4760-B744-34819E57251A}
+		{E3CD116C-2614-4FA6-B4B7-6F0A6237E838} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{C65D57E3-D31F-43AE-A874-9B46D2453519} = {8CD73E15-21A3-46AC-A8E8-9FF6FF4BD3D2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA159D74-788F-47B9-92B9-E3AAF814AE91}

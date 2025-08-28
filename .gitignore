@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Google Cloud Credentials
+flexbazaar-bcbab6d3ac0b.json
