@@ -10,7 +10,6 @@
   "main": "index.html",
   "dependencies": {
     "@mdi/font": "^2.7.94",
-    "axios": "^1.11.0",
     "bootstrap": "^5.3.7",
     "braces": "^3.0.3",
     "chart.js": "^2.8.0",
