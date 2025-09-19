@@ -53,8 +53,6 @@ namespace FlexBazaar.RapidApiWebUI.Controllers
                 ViewBag.previousCloseUsd = values.data.previous_close;
             }
 
-
-
             var clientEur = new HttpClient();
             var requestEur = new HttpRequestMessage
             {
