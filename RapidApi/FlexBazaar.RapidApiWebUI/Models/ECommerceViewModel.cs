@@ -2,7 +2,6 @@
 {
     public class ECommerceViewModel
     {
-
         public class Rootobject
         {
             public string status { get; set; }
@@ -31,6 +30,5 @@
             public object shipping { get; set; }
             public string original_price { get; set; }
         }
-
     }
 }
