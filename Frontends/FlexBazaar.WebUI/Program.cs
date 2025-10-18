@@ -1,4 +1,5 @@
 using FlexBazaar.WebUI.Handlers;
+using FlexBazaar.WebUI.Resources;
 using FlexBazaar.WebUI.Services.BasketServices;
 using FlexBazaar.WebUI.Services.CargoServices.CargoCompanyServices;
 using FlexBazaar.WebUI.Services.CargoServices.CargoCustomerServices;
@@ -28,6 +29,10 @@ using FlexBazaar.WebUI.Services.UserIdentityServices;
 using FlexBazaar.WebUI.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,7 +80,7 @@ builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTo
 
 var values = builder.Configuration.GetSection("serviceApiSettings").Get<ServiceApiSettings>();
 
-builder.Services.AddHttpClient<IUserService, UserService>(opt=>
+builder.Services.AddHttpClient<IUserService, UserService>(opt =>
 {
     opt.BaseAddress = new Uri(values.IdentityServerUrl);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
@@ -224,6 +229,45 @@ builder.Services.AddHttpClient<IContactService, ContactService>(opt =>
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
+// dil desteði
+builder.Services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
+
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization(
+    opt =>
+    {
+        opt.DataAnnotationLocalizerProvider = (type, factory) =>
+        {
+            var assembly = new AssemblyName(typeof(AppResource).GetTypeInfo().Assembly.FullName);
+            return factory.Create("AppResource", assembly.Name);
+        };
+    });
+
+builder.Services.Configure<RequestLocalizationOptions>(opt =>
+{
+    var cultures = new List<CultureInfo>
+    {
+        new CultureInfo("tr-TR"),
+        new CultureInfo("en-US"),
+        new CultureInfo("fr-FR"),
+        new CultureInfo("it-IT"),
+        new CultureInfo("de-DE"),
+        new CultureInfo("ru-RU")
+    };
+
+    opt.DefaultRequestCulture = new RequestCulture(new CultureInfo("tr-TR"));
+    opt.SupportedCultures = cultures;
+    opt.SupportedUICultures = cultures;
+
+    opt.RequestCultureProviders = new List<IRequestCultureProvider>()
+    {
+        new QueryStringRequestCultureProvider(),
+        new CookieRequestCultureProvider(),
+        new AcceptLanguageHeaderRequestCultureProvider(),
+    };
+
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -240,6 +284,12 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+// dil 
+var supportedCultures = new[] { "en", "fr", "de", "ru", "it", "tr" };
+var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[5]).AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
 
 app.MapControllerRoute(
     name: "default",

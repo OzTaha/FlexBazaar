@@ -1,0 +1,18 @@
+﻿@using FlexBazaar.WebUI.Resources
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+
+@inject IOptions<RequestLocalizationOptions> _locOption
+@inject IHtmlLocalizer<AppResource> _localizer
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = _locOption.Value.SupportedCultures.Select(x => new SelectListItem { Text = x.DisplayName, Value = x.Name });
+}
+
+<form asp-controller="Culture" asp-action="SetLanguage" asp-route-returnUrl="@Context.Request.Path" method="post">
+    <select class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" onchange="this.form.submit()" name="culture" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="@cultureItems">
+    </select>
+</form>
